@@ -79,7 +79,7 @@ public class Dao {
 			pstmt.setString(6, c.getWhy());
 			pstmt.setString(7, c.getWhat());
 			pstmt.setString(8, c.getProfession());
-			pstmt.setInt(2, c.getId());
+			pstmt.setInt(9, c.getId());
 			pstmt.executeUpdate();
 			return readAllCandidates();
 		}
