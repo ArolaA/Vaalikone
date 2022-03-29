@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import data.Candidate;
 
-
 import java.sql.Connection;
 
 public class Dao {
@@ -62,6 +61,27 @@ public class Dao {
 				list.add(c);
 			}
 			return list;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	//update
+	public ArrayList<Candidate> updateCandidate(Candidate c) {
+		try {
+			String sql="UPDATE ehdokkaat SET ika=?, etunimi=?, sukunimi=?, puolue=?, kotipaikkakunta=?, miksi_ediskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, c.getAge());
+			pstmt.setString(2, c.getFirstname());
+			pstmt.setString(3, c.getSurname());
+			pstmt.setString(4, c.getParty());
+			pstmt.setString(5, c.getHometown());
+			pstmt.setString(6, c.getWhy());
+			pstmt.setString(7, c.getWhat());
+			pstmt.setString(8, c.getProfession());
+			pstmt.setInt(9, c.getId());
+			pstmt.executeUpdate();
+			return readAllCandidates();
 		}
 		catch(SQLException e) {
 			return null;
