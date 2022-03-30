@@ -42,6 +42,7 @@ public class Dao {
 			return false;
 		}
 	}
+	//read candidates from database
 	public ArrayList<Candidate> readAllCandidates() {
 		ArrayList<Candidate> list=new ArrayList<>();
 		try {
@@ -71,7 +72,7 @@ public class Dao {
 		try {
 			String sql="UPDATE ehdokkaat SET ika=?, sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, c.getAge());
+			pstmt.setInt(1, c.getAge());
 			pstmt.setString(3, c.getSurname());
 			pstmt.setString(2, c.getFirstname());
 			pstmt.setString(4, c.getParty());
@@ -82,6 +83,28 @@ public class Dao {
 			pstmt.setInt(9, c.getId());
 			pstmt.executeUpdate();
 			return readAllCandidates();
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	//adds a candidate to the database and if operation is a success it returns a list of all candidates 
+	public ArrayList<Candidate> addCandidate(Candidate c) {
+		try {
+			String sql="INSERT INTO ehdokkaat (ehdokas_id, sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, c.getId());
+			pstmt.setString(2, c.getSurname());
+			pstmt.setString(3, c.getFirstname());
+			pstmt.setString(4, c.getParty());
+			pstmt.setString(5, c.getHometown());
+			pstmt.setInt(6, c.getAge());
+			pstmt.setString(7, c.getWhy());
+			pstmt.setString(8, c.getWhat());
+			pstmt.setString(9, c.getProfession());			
+			pstmt.executeUpdate();
+			return readAllCandidates();			
 		}
 		catch(SQLException e) {
 			return null;
