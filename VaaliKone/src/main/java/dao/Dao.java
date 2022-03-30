@@ -70,11 +70,11 @@ public class Dao {
 	//update
 	public ArrayList<Candidate> updateCandidate(Candidate c) {
 		try {
-			String sql="UPDATE ehdokkaat SET ika=?, etunimi=?, sukunimi=?, puolue=?, kotipaikkakunta=?, miksi_ediskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
+			String sql="UPDATE ehdokkaat SET ika=?, sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, c.getAge());
-			pstmt.setString(2, c.getFirstname());
 			pstmt.setString(3, c.getSurname());
+			pstmt.setString(2, c.getFirstname());
 			pstmt.setString(4, c.getParty());
 			pstmt.setString(5, c.getHometown());
 			pstmt.setString(6, c.getWhy());
