@@ -31,15 +31,15 @@ public class Update extends HttpServlet {
 		throws IOException, ServletException {
 		String id=request.getParameter("ehdokas_id");
 		String age=request.getParameter("ika");
-		String fname=request.getParameter("etunimi");
 		String sname=request.getParameter("sukunimi");
+		String fname=request.getParameter("etunimi");
 		String party=request.getParameter("puolue");
 		String dom=request.getParameter("kotipaikkakunta");
 		String why=request.getParameter("miksi_eduskuntaan");
 		String what=request.getParameter("mita_asioita_haluat_edistaa");
 		String prof=request.getParameter("ammatti");
 
-		Candidate c=new Candidate(id, age, fname, sname, party, dom, why, what, prof);
+		Candidate c=new Candidate(id, age, sname, fname, party, dom, why, what, prof);
 
 		ArrayList<Candidate> list=null;
 		if (dao.getConnection()) {
