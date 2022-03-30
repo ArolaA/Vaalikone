@@ -46,8 +46,8 @@ public class ShowCandidates extends HttpServlet {
 		else {
 			System.out.println("No connection to database");
 		}
-		request.setAttribute("candidatelist", list);
 		
+		request.setAttribute("candidatelist", list);		
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showcandidates.jsp");
 		rd.forward(request, response);
 	}
