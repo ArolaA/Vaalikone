@@ -3,7 +3,7 @@ package data;
 public class Candidate {
 	
 	private int id;
-	private String age;
+	private int age;
 	private String surname;
 	private String firstname;
 	private String party;
@@ -16,7 +16,7 @@ public class Candidate {
 	public Candidate(String id, String age, String sur, String first, String party, String home, String why, String what, String prof) {
 		// TODO Auto-generated constructor stub
 		setId(id);
-		this.age=age;
+		setAge(age);
 		this.surname=sur;
 		this.firstname=first;
 		this.party=party;
@@ -42,11 +42,19 @@ public class Candidate {
 			//Do nothing - the value of id won't be changed
 		}
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
+	}
+	public void setAge(String age) {
+		try {
+			this.age = Integer.parseInt(age);
+		}
+		catch(NumberFormatException | NullPointerException e) {
+			//Do nothing - the value of id won't be changed
+		}
 	}
 	
 	public String getSurname() {

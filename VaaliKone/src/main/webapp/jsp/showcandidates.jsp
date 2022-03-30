@@ -10,17 +10,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Fish application</title>
+<title>Vaalikone kaikki ehdokkaat</title>
 
 <link rel="stylesheet" type="text/css" href="mycss.css">
 <script src="myscriptfile.js"></script>
 
 </head>
-<body>
-<h2>Ehdokkaat</h2>
-	
-	
-	<table>
+<body>	<h2>Vaalien ehdokkaat</h2>
+	<table>		
 		<tr>
 		    <th>ID</th>
 		    <th>Sukunimi</th>
@@ -36,9 +33,9 @@
 				<td><a class='button' href='/delete?id=${candidate.id}'>poista</a></td>
 				<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>				
 			</tr>
-		</c:forEach>
-		
+		</c:forEach>		
 	</table>
+	<a href='../index.html' class="button3">Takaisin</a>
 
 
 </body>
