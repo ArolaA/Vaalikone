@@ -111,4 +111,23 @@ public class Dao {
 		}
 	}
 
+	
+	
+	public ArrayList<Candidate> deleteCandidate(String id) {
+		try {
+			String sql="DELETE FROM ehdokkaat WHERE ehdokas_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+			
+			return readAllCandidates();	
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	
+	
+	}
+
 }
