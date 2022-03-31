@@ -16,27 +16,42 @@
 <script src="myscriptfile.js"></script>
 
 </head>
-<body>	<h2>Vaalien ehdokkaat</h2>
-	<table>		
-		<tr>
-		    <th>ID</th>
-		    <th>Sukunimi</th>
-		    <th>Etunimi</th>
-		    <th>Puolue</th>
-	  	</tr>
-		<c:forEach var="candidate" items="${requestScope.candidatelist}">
+<body>
+<div class="background">
+	<div class="frame">
+		<div class="heading">
+			<div class="column">
+			</div>
+			<div class="column" id="heading">
+				<h1>EHDOKASLISTA</h1>
+			</div>			
+			<div class="column">
+			</div>
+		</div>
+		<table>		
+			<tr class ="list_headers">
+			    <th class="id_header">Numero</th>
+			    <th class="name_header">Sukunimi</th>
+			    <th class="name_header">Etunimi</th>
+			    <th>Puolue</th>
+		  	</tr>
+			<c:forEach var="candidate" items="${requestScope.candidatelist}">
+				<tr>
+					<td class="id_column">${candidate.id} </td>
+					<td>${candidate.surname} </td>
+					<td>${candidate.firstname} </td>
+					<td>${candidate.party} </td> 
+					<td><a class='button'  href='/delete?id=${candidate.id}' onclick="return confirm('Ehdokas nro ${candidate.id} poistetaan. Oletko varma?')">poista</a></td>
+					<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>				
+				</tr>
+			</c:forEach>
 			<tr>
-				<td>${candidate.id} </td>
-				<td>${candidate.surname} </td>
-				<td>${candidate.firstname} </td>
-				<td>${candidate.party} </td> 
-				<td><a class='button' href='/delete?id=${candidate.id}'>poista</a></td>
-				<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>				
-			</tr>
-		</c:forEach>		
-	</table>
-	<a href='../index.html' class="button3">Takaisin</a>
-
+					<td><a href='../index.html' class="btn-grad">Takaisin</a></td>								
+				</tr>		
+		</table>
+		
+	</div>
+</div>
 
 </body>
 </html>
