@@ -1,49 +1,251 @@
+ html 
+{
+  font-family: Optima, Verdana, sans-serif !important;
+}
+
  .button, input[type=submit] 
  {
-	 background-color: red;
-	 border: none;
-	 color: white;
-	 padding: 5px;
+	 background: #ED213A;  /* fallback for old browsers */
+	 background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+	 background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	 border: 1px solid black;
+	 color: ivory;
+	 padding: 7px;
 	 border-radius: 5px;
 	 text-align: center;
 	 text-decoration: none;
 	 display: inline-block;
 	 font-size: 16px;
+	 font-weight: bold;
 	 margin: 4px 2px;
 	 cursor: pointer;
+	 text-transform: uppercase;
 }
 
  .button2
- {
-	 background-color: green;
-	 border: none;
-	 color: white;
-	 padding: 5px;
+ {	 
+	 background: #000000;  /* fallback for old browsers */
+	 background: -webkit-linear-gradient(to right, #0f9b0f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+	 background: linear-gradient(to right, #0f9b0f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	 border: 1px solid black;
+	 color: ivory;
+	 padding: 7px;
 	 border-radius: 5px;
 	 text-align: center;
 	 text-decoration: none;
 	 display: inline-block;
 	 font-size: 16px;
+	 font-weight: bold;
 	 margin: 4px 2px;
 	 cursor: pointer;
+	 text-transform: uppercase;
 }
 
- .button3 
- {
-	background-color: blue;
+.button3 
+{
+	background: -webkit-linear-gradient(to left, #e35d5b, #e53935);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #e35d5b, #e53935); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	border: none;
-	color: white;
+	color: ivory;
 	padding: 10px;
-	border-radius: 5px;
+	border: 1px solid ivory;
+	border-radius: 5px;	
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 18px;
+	font-weight:bold;
 	margin: 4px 4px;
 	cursor: pointer;
-	}
+	text-transform: uppercase;
+}
+
+.btn-grad 
+{
+	background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%)
+}
+
+.btn-grad 
+{
+   margin: 10px;
+   padding: 15px 20px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   border: 1px solid ivory;
+   display: block;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+.btn-grad:hover 
+{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}     
 
  .button:hover, .button2:hover, .button3:hover, input[type=submit]:hover
  {		
 	color: darkgrey;	
  }
+ 
+ .button:active, .button2:active, .button3:active
+{  	
+  	box-shadow: 0 5px #666;
+  	transform: translateY(4px);
+}
+ 
+ .id_column
+{
+ 	text-align: center;
+ 	width: 80px; 	
+} 
+
+.name_header
+{
+	text-align: left;
+}
+
+.list_headers
+{
+	text-transform: uppercase;
+}
+
+td
+{
+	color:black;
+	font-size: 18px;
+	padding: 5px;
+	font-weight: bold;
+}
+.frame th
+{
+	font-size: 20px;
+	padding: 10px;
+	font-weight: bold;	
+}
+
+body
+{
+	background-color:#F5F5F5;
+
+}
+
+.background
+{
+	display: flex;
+  	justify-content: center;
+}
+
+.frame
+{
+	border-radius: 10px;	
+	width:80%;
+	background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+	padding-top: 30px;
+	margin-top: 10px;	
+}
+
+
+.heading
+{
+	display: flex;
+	flex-direction: row;
+  	flex-wrap: wrap;
+  	width: 100%;
+  	justify-content: center;
+	color: black;
+	text-align: center;
+	flex: 33,33%;
+	margin-bottom: 40px;
+}
+
+.column 
+{
+  flex: 33.33%;
+}
+
+#heading
+{
+	color: rgba(255,222,89,255);
+	background-color: black;
+	border-radius: 10px;
+	font-size: 20px;
+	
+}
+
+.heading div
+{
+	
+}
+
+.heading .list_headers th
+{
+	color: black;
+}
+
+.frame table
+{
+	display: flex;
+	justify-content: center;
+}
+
+.frame .button3
+{
+	margin:20px;
+}
+
+.navigation
+{
+	display: flex;
+	justify-content: center;
+}
+
+.navigation ul 
+{
+	list-style-type: none;
+	overflow: hidden;
+ }
+  
+.navigation li 
+{
+	float: left;
+  }
+  
+.navigation li a 
+{
+	display: inline-block;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+ 
+ .logo 
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 250px;
+  width: auto;
+  border-radius: 10% !important;
+  margin-top:20px;
+  margin-bottom:20px; 
+}
+
+#lisayslomake
+{
+	font-size: 20px;
+}
+
+#lisayslomake input[type="text"], #lisayslomake input[type="number"] 
+{
+    font-size:18px;
+    width: 80%;
+}
+
+
