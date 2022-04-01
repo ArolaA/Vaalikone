@@ -30,7 +30,7 @@
 				<td>${candidate.surname} </td>
 				<td>${candidate.firstname} </td>
 				<td>${candidate.party} </td> 
-				<td><a class='button' href='/delete?id=${candidate.id}'>poista</a></td>
+				<td><a class='button' href='/confirmDelete?id=${candidate.id}'>poista</a></td>
 				<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>				
 			</tr>
 		</c:forEach>		
