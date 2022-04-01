@@ -43,7 +43,7 @@ public class confirmDelete extends HttpServlet {
 //		ArrayList<Candidate> list=new ArrayList<>();
 		Candidate c=null;
 		if (dao.getConnection()) {
-			c=dao.readCandidate(id);
+			c=dao.readOneCandidate(id);
 		}
 		
 		request.setAttribute("candidateinfo", c);
