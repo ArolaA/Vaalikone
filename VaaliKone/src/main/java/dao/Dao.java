@@ -42,7 +42,7 @@ public class Dao {
 			return false;
 		}
 	}
-	//read candidates from database
+	//read all candidates from database
 	public ArrayList<Candidate> readAllCandidates() {
 		ArrayList<Candidate> list=new ArrayList<>();
 		try {
@@ -67,16 +67,42 @@ public class Dao {
 			return null;
 		}
 	}
+	//read single candidate to the update based on the id it gets
+	public Candidate readCandidate(String id) {
+		Candidate c = null;
+		try {
+			String sql="select * from ehdokkaat where ehdokas_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()){
+				c = new Candidate();
+				c.setId(RS.getInt("id"));
+				c.setFirstname(RS.getString("etunimi"));
+				c.setSurname(RS.getString("sukunimi"));
+				c.setParty(RS.getString("puolue"));
+				c.setHomeTown(RS.getString("kotipaikkakunta"));
+				c.setAge(RS.getString("ika"));
+				c.setWhy(RS.getString("miksi_eduskuntaan"));
+				c.setWhat(RS.getString("mita_asioita_haluat_edistaa"));
+				c.setProfession(RS.getString("ammatti"));
+			}
+			return c;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
 	//update
 	public ArrayList<Candidate> updateCandidate(Candidate c) {
 		try {
-			String sql="UPDATE ehdokkaat SET ika=?, sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
+			String sql="UPDATE ehdokkaat SET sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, ika=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, c.getAge());
-			pstmt.setString(3, c.getSurname());
+			pstmt.setString(1, c.getSurname());
 			pstmt.setString(2, c.getFirstname());
-			pstmt.setString(4, c.getParty());
-			pstmt.setString(5, c.getHometown());
+			pstmt.setString(3, c.getParty());
+			pstmt.setString(4, c.getHometown());
+			pstmt.setInt(5, c.getAge());
 			pstmt.setString(6, c.getWhy());
 			pstmt.setString(7, c.getWhat());
 			pstmt.setString(8, c.getProfession());
