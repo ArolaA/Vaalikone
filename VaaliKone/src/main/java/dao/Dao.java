@@ -155,5 +155,34 @@ public class Dao {
 	
 	
 	}
+	
+	public Candidate readOneCandidate(String id) {
+		Candidate c=null;
+
+		try {
+			String sql="SELECT * FROM ehdokkaat WHERE ehdokas_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			
+			while (RS.next()){
+				c= new Candidate();
+				c.setId(RS.getInt("ehdokas_id"));
+				c.setAge(RS.getString("ika"));
+				c.setFirstname(RS.getString("etunimi"));
+				c.setSurname(RS.getString("sukunimi"));
+				c.setParty(RS.getString("puolue"));
+				c.setHomeTown(RS.getString("kotipaikkakunta"));
+				c.setWhy(RS.getString("miksi_eduskuntaan"));
+				c.setWhat(RS.getString("mita_asioita_haluat_edistaa"));
+				c.setProfession(RS.getString("ammatti"));
+
+			}
+			return c;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
 
 }
