@@ -39,7 +39,7 @@ public class ReadToUpdate extends HttpServlet {
 		if (dao.getConnection())	{
 			c = dao.readCandidate(id);
 		}
-		request.setAttribute("candicate", c);
+		request.setAttribute("candidate", c);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showcandidatetoedit.jsp");
 		rd.forward(request, response);
