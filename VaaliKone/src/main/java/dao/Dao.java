@@ -77,7 +77,7 @@ public class Dao {
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()){
 				c = new Candidate();
-				c.setId(RS.getInt("id"));
+				c.setId(RS.getInt("ehdokas_id"));
 				c.setFirstname(RS.getString("etunimi"));
 				c.setSurname(RS.getString("sukunimi"));
 				c.setParty(RS.getString("puolue"));
@@ -96,7 +96,7 @@ public class Dao {
 	//update
 	public ArrayList<Candidate> updateCandidate(Candidate c) {
 		try {
-			String sql="UPDATE ehdokkaat SET sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, ika=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=?, WHERE ehdokas_id=?";
+			String sql="UPDATE ehdokkaat SET sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, ika=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=? WHERE ehdokas_id=?";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, c.getSurname());
 			pstmt.setString(2, c.getFirstname());

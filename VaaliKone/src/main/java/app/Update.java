@@ -39,7 +39,7 @@ public class Update extends HttpServlet {
 		String what=request.getParameter("mita");
 		String prof=request.getParameter("ammatti");
 
-		Candidate c=new Candidate(id, sname, fname, party, dom, age, why, what, prof);
+		Candidate c=new Candidate(id, age, sname, fname, party, dom, why, what, prof);
 
 		ArrayList<Candidate> list=null;
 		if (dao.getConnection()) {
