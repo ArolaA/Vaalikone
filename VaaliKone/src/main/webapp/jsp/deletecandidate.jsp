@@ -20,6 +20,6 @@
 	<h2>Valittu ehdokas on poistettu</h2>
 
 		
-<a href='../index.html' class="button3">Takaisin</a>
+<a href='jsp/admin.jsp' class="button3">Takaisin</a>
 </body>
 </html>

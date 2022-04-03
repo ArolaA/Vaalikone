@@ -4,8 +4,7 @@
 }
 
  .button, input[type=submit] 
- {
-	 background: #ED213A;  /* fallback for old browsers */
+ {	 
 	 background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
 	 background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	 border: 1px solid black;
@@ -23,8 +22,7 @@
 }
 
  .button2
- {	 
-	 background: #000000;  /* fallback for old browsers */
+ {	 	
 	 background: -webkit-linear-gradient(to right, #0f9b0f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
 	 background: linear-gradient(to right, #0f9b0f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	 border: 1px solid black;
@@ -94,7 +92,7 @@
 	color: darkgrey;	
  }
  
- .button:active, .button2:active, .button3:active
+ .button:active, .button2:active, .button3:active, input[type=submit]:active
 {  	
   	box-shadow: 0 5px #666;
   	transform: translateY(4px);
@@ -140,6 +138,53 @@ body
 	margin-top: 10px;	
 }
 
+.header
+{
+	display: flex;
+	flex-direction: row;
+}
+
+.column
+{
+	flex: 1 1 33.3%;
+}
+
+ .logo
+{  
+  margin-bottom:20px;
+  display: flex;
+  justify-content: center; 
+}
+
+.logo img
+{
+	height: 250px;
+	width: auto;
+	border-radius: 10% !important; 
+}
+
+.logout
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	align-items: center;
+}
+
+.logout img
+{
+	height: 60px;
+	width: auto;
+}
+
+.login
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: right;	
+	align-items:flex-start;
+}
+
 .heading
 {
 	display: flex;
@@ -175,13 +220,13 @@ body
 	text-transform: uppercase;	
 }
 
-.frame table
+.candidatelist table
 {
 	display: flex;
 	justify-content: center;
 }
 
-.frame .button3
+.candidatelist .button3
 {
 	margin:20px;
 }
@@ -209,19 +254,7 @@ body
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
-}
- 
- .logo 
-{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 250px;
-  width: auto;
-  border-radius: 10% !important;
-  margin-top:20px;
-  margin-bottom:20px; 
-}
+} 
 
 #lisayslomake
 {
@@ -233,5 +266,4 @@ body
     font-size:18px;
     width: 80%;
 }
-
 
