@@ -58,6 +58,25 @@
 	text-transform: uppercase;
 }
 
+.loginbutton, .loginform input[type=submit] 
+{
+	/* background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%); */
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	border: none;
+	color: ivory;
+	padding: 7px;
+	border: 1px solid ivory;
+	border-radius: 5px;	
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	font-weight:bolder;
+	margin: 4px 4px;
+	cursor: pointer;
+	text-transform: uppercase;	
+}
+
 .btn-grad 
 {
 	background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%)
@@ -87,12 +106,12 @@
   text-decoration: none;
 }     
 
- .button:hover, .button2:hover, .button3:hover, input[type=submit]:hover
+ .button:hover, .button2:hover, .button3:hover, input[type=submit]:hover, .loginbutton:hover
  {		
 	color: darkgrey;	
  }
  
- .button:active, .button2:active, .button3:active, input[type=submit]:active
+ .button:active, .button2:active, .button3:active, input[type=submit]:active, .loginbutton:active
 {  	
   	box-shadow: 0 5px #666;
   	transform: translateY(4px);
@@ -168,13 +187,47 @@ body
 	display: flex;
 	flex-direction: row;
 	justify-content: right;
-	align-items: center;
+	align-items: flex-start;
 }
 
-.logout img
+.logout img, .login img
+{
+	width: 20px;
+	heigth: auto;
+}
+
+a.loginbutton
+{
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;	
+}
+
+.adminlogo
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: flex-start;
+	text-transform: uppercase;
+}
+
+.adminlogo img
 {
 	height: 60px;
 	width: auto;
+	padding-left: 40px;
+}
+
+.adminlogo p
+{
+	margin: 5px 0px 0px 0px;
+	padding: 7px;
+	font-weight: bold;	
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	color: ivory;
+	border-radius: 10px;
 }
 
 .login
@@ -183,6 +236,43 @@ body
 	flex-direction: row;
 	justify-content: right;	
 	align-items:flex-start;
+}
+
+.passwordlogo img
+{
+	width: 30px;
+	height: 30px;	
+	vertical-align:middle;	
+}
+
+td.passwordlogo
+{
+	padding-top: 5px;
+}
+
+td.loginlogo
+{
+	padding-left: 2px;
+}
+
+.loginlogo img
+{
+	border-radius: 50%;
+	border: 1px solid ivory;
+	width: 25px;
+	height: auto;
+	vertical-align:middle;
+}
+
+.loginlogo input[type=text]
+{
+	margin: 0px;
+	margin-left :3px;
+}
+
+.loginlabel
+{
+	font-size: 12px;
 }
 
 .heading
@@ -198,8 +288,8 @@ body
 
 #heading
 {
-	color: rgba(255,222,89,255);
-	background-color: black;
+	color: ivory;
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 	border-radius: 10px;
 	font-size: 20px !important;	
 	text-transform: uppercase;	
@@ -261,9 +351,17 @@ body
 	font-size: 20px;
 }
 
+h2.addcandidate_heading
+{
+	margin-top: 0px;
+}
+
 #lisayslomake input[type="text"], #lisayslomake input[type="number"] 
 {
     font-size:18px;
     width: 80%;
+    margin-bottom: 10px;
 }
+
+
 

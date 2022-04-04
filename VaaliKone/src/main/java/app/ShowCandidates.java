@@ -39,7 +39,11 @@ public class ShowCandidates extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Candidate> list=null;
+		
+		response.setCharacterEncoding("UTF-8");
+		
+		ArrayList<Candidate> list=null;		
+		
 		if (dao.getConnection()) {
 			list=dao.readAllCandidates();
 		}
