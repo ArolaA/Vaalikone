@@ -15,27 +15,23 @@
 </head>
 <body>
 <div class="background">
-	<div class="frame" style="width: 30%;">
+	<div class="frame" style="width: 25%;">
 		<div class="loginform">
-			<form action="/checklogin" method="post">
-					<p style="color:red; font-size: 12px; font-weight: bold;">${requestScope.login} </p>		  
+			<form action="/checklogin" method="post">							  
 			        <h3>Anna käyttäjänimi ja salasana</h3>			        			  
-			        <table>
-			        	<tr>
-			        		<td>Käyttäjänimi:</td>
-			        	</tr>
-			            <tr>	                
-			                <td><input type="text" name="user" required /></td>
-			            </tr>
-			            <tr>	         
-			                <td>Salasana:</td>
-			            </tr>	                     
+			        <table>			        	
 			            <tr>
-			                <td><input type="password" name="password" required/></td>
+			            	<td class="loginlogo"><img src="/img/user_logo.png" alt="username logo">	                
+			                	<input type="text" name="user" required placeholder="käyttäjänimi"></td>
+			            </tr>			            	                     
+			            <tr>
+			            	<td class="passwordlogo"><img src="/img/password_logo.png" alt="password logo">
+			                	<input type="password" name="password" required placeholder="salasana"></td>
 			            </tr>			  
 			        </table>
-			        <br>	          
-			        <input type="submit" value="Kirjaudu" />  
+			        <p style="color:red; font-size: 12px; font-weight: bold; text-transform: uppercase;">${requestScope.login} </p>
+			                 
+			        <input class="loginbutton" type="submit" value="Kirjaudu">  
 			</form>
 		</div>
 	</div>

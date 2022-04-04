@@ -29,15 +29,16 @@ else
 <div class="background">	  	  	
 	  	<div class="frame adminview" style="padding-bottom: 60px;">
 	  	<div class="header">
-		  	<div class="column">	 
-		  			 	  						
+		  	<div class="column adminlogo">	 
+		  		<img src="/img/admin.png" alt="admin logo">
+		  		<p>admin mode</p>						
 		  	</div> 
 		  	<div class="logo column">	 		
 		  		<img src="/img/vaalikone_logo.png" alt="vaalikone logo">
 		  	</div>
-		  	<div class="column logout">		  		
-		  		<img src="/img/admin.png" alt="admin logo">		  		
-		  		<a class="button2" href='/logout'>logout</a>
+		  	<div class="column logout">		  			  		
+		  		<a class="loginbutton" href='/logout'>logout<img src="/img/logout_logo.png" alt="logout logo"></a>
+		  		<!-- <img src="/img/logout_logo.png" alt="logout logo"> -->
 		  	</div> 			
 	  	</div> 			
 	  		<div class="navigation">			    
