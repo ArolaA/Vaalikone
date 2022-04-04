@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import data.Candidate;
+import data.Question;
 
 import java.sql.Connection;
 
@@ -182,5 +183,26 @@ public class Dao {
 			return null;
 		}
 	}
+	//kysymyksiin liittyvät tähän
+	
+	//READ Kysymykset
+	public ArrayList<Question> readAllQuestions() {
+		ArrayList<Question> list = new ArrayList<>();
+		try {
+			Statement stmt=conn.createStatement();
+			ResultSet RS=stmt.executeQuery("select * from kysymykset");
+			while (RS.next()){
+				Question q = new Question();
+				q.setId(RS.getInt("kysymys_id"));
+				q.setQuestion(RS.getString("kysymys"));
+				list.add(q);
+			}
+			return list;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
 
 }
