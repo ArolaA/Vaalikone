@@ -135,9 +135,7 @@ public class Dao {
 		catch(SQLException e) {
 			return null;
 		}
-	}
-
-	
+	}	
 	
 	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
