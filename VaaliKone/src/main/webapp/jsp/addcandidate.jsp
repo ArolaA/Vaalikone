@@ -16,6 +16,16 @@
 
 </head>
 <body>
+<%  
+if (session.getAttribute("user") != null) 
+	{
+	
+	} 
+else 
+	{
+	  response.sendRedirect("/jsp/login.jsp");            
+	}
+%>
 <div class="background">
 	<div class="frame" style="width:30%; padding:40px;">		
 		<h2>Anna ehdokkaan tiedot</h2>		
@@ -43,7 +53,7 @@
 		
 		<table style="justify-content:left;">
 			<tr>
-				<td><a href='../index.html' class="btn-grad">Takaisin</a></td>								
+				<td><a href='admin.jsp' class="btn-grad">Takaisin</a></td>								
 			</tr>		
 		</table>
 		

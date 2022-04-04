@@ -16,6 +16,17 @@
 
 </head>
 <body>
+<%  
+if (session.getAttribute("user") != null) 
+	{
+	
+	} 
+else 
+	{
+	  response.sendRedirect("/jsp/login.jsp");            
+	}
+%>
+    
 <div class="background">
 	<div class="frame">
 		<div class="heading">			
@@ -42,7 +53,7 @@
 					</tr>
 				</c:forEach>
 				<tr>
-					<td><a href='../index.html' class="btn-grad">Takaisin</a></td>
+					<td><a href='jsp/admin.jsp' class="btn-grad">Takaisin</a></td>
 				</tr>		
 			</table>
 		</div>		

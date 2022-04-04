@@ -17,25 +17,28 @@ import data.Candidate;
 @WebServlet("/AddCandidate")
 
 public class AddCandidate extends HttpServlet {
+		
+	private static final long serialVersionUID = 1L;
 	
-	private Dao dao=null;  
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	
+	private Dao dao;	
+    
 	@Override
 	public void init() {
 		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "admin", "admin21m");
 	}
-    public AddCandidate() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws IOException {
+		response.sendRedirect("index.html");
+	}  
     
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException {	
+		
+		//set the right character enconding, so that special characters print out properly
+		response.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter(); 
 		
@@ -49,7 +52,7 @@ public class AddCandidate extends HttpServlet {
 		String what=request.getParameter("mita");
 		String prof=request.getParameter("ammatti");	
 		
-		//create a new instance from candidate-class
+		//create a new instance of candidate-class
 		Candidate c = new Candidate(id, age, surname, firstname, party, hometown, why, what, prof);
 		
 		//clean up the list of candidates
@@ -77,13 +80,17 @@ public class AddCandidate extends HttpServlet {
 		//if the candidate-list is returned ok and the candidate is added successfully 
 		//then javascript confirm message appears
 		else 
-		{			
+		{	
+			
 			out.println("<script type=\"text/javascript\">"); 
-			out.println("if(confirm('Ehdokas lisätty onnistuneesti tietokantaan. Lisätäänkö uusi ehdokas?')){;");
-			out.println("location='jsp/addcandidate.jsp';}");
-			out.println("else{");
-			out.println("location='../index.html';}");
-			out.println("</script>"); 
+			out.println("if(window.confirm('Ehdokas lisätty onnistuneesti tietokantaan. Lisätäänkö uusi ehdokas?')){;");
+			out.println("location='jsp/addcandidate.jsp';}");			
+			out.println("else{}");			
+			out.println("</script>");
+			
+			request.setAttribute("candidatelist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("/jsp/showcandidates.jsp");
+			rd.forward(request, response);
 		}		
 	}
 }
