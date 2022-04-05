@@ -20,22 +20,30 @@
 					</div>
 				</div>
 				<div class="questionlist">
-					<table>
-						<tr>
-						    <th class="id_column">ID</th>
-						    <th class="question">Kysymys</th>
-					  	</tr>
-						<c:forEach var="question" items="${requestScope.questionlist}">
+					<form method="post" name="valinta">
+						<table>
 							<tr>
-								<td class="id_column">${question.id} </td>
-								<td>${question.question} </td>
-								<%--TODO tähän radio button form joka määrittää käyttäjän vastauksen arvon--%>
+							    <th class="id_column">ID</th>
+							    <th class="question_column">Kysymys</th>
+						  	</tr>
+							<c:forEach var="question" items="${requestScope.questionlist}">
+								<tr>
+									<td class="id_column">${question.id} </td>
+									<td>${question.question} </td>
+								</tr>
+								
+									<td><input type="radio" name="valinta" value="1">1 samaa mieltä</td>
+									<td><input type="radio" name="valinta" value="2">2 suht samaa mieltä</td>
+									<td><input type="radio" name="valinta" value="3">3</td>
+									<td><input type="radio" name="valinta" value="4">4</td>
+									<td><input type="radio" name="valinta" value="5">5</td>
+								
+							</c:forEach>
+							<tr>
+								<td><a href='../index.html' class="btn-grad">Takaisin</a></td>
 							</tr>
-						</c:forEach>
-						<tr>
-							<td><a href='../index.html' class="btn-grad">Takaisin</a></td>
-						</tr>
-					</table>
+						</table>
+					</form>
 				</div>
 			</div>
 		</div>
