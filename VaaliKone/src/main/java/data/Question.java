@@ -5,9 +5,9 @@ public class Question {
 	private int id;
 	private String question;
 	
-	public Question(String id, String quest) {
+	public Question(String id, String question) {
 		setId(id);
-		this.question = quest;
+		this.question = question;
 
 	}
 	public Question() {
