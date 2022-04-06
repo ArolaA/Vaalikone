@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Vaalikone kaikki ehdokkaat</title>
+<title>Vaalikone admin mode</title>
 
 <link rel="stylesheet" type="text/css" href="../mycss.css">
 
@@ -38,14 +38,13 @@ else
 		  	</div>
 		  	<div class="column logout">		  			  		
 		  		<a class="loginbutton" href='/logout'>logout<img src="/img/logout_logo.png" alt="logout logo"></a>
-		  		<!-- <img src="/img/logout_logo.png" alt="logout logo"> -->
 		  	</div> 			
 	  	</div> 			
 	  		<div class="navigation">			    
 			    <ul>
 				  <li><a class="btn-grad" href='/ShowCandidates'>Näytä ehdokkaat</a></li>
 				  <li><a class="btn-grad" href='/jsp/addcandidate.jsp'>Lisää ehdokas</a></li>
-				  <li><a class="btn-grad" href="#">toiminto3</a></li>
+				  <li><a class="btn-grad" href='/ShowCandidateQuestions'>Ehdokas vastaa</a></li>
 				  <li><a class="btn-grad" href="#">toiminto4</a></li>
 				</ul>			    
 		    </div>
