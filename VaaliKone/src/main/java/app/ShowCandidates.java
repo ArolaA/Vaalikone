@@ -22,10 +22,7 @@ public class ShowCandidates extends HttpServlet {
 	
 	private Dao dao=null;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	
+   	
 	@Override
 	public void init() {
 		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "admin", "admin21m");
@@ -34,10 +31,7 @@ public class ShowCandidates extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setCharacterEncoding("UTF-8");
