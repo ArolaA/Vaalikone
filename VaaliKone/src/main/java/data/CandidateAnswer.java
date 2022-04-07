@@ -2,15 +2,15 @@ package data;
 
 public class CandidateAnswer {
 	
-	private int candidate_id;
-	private int question_id ;
+	private int candidateId;
+	private int questionId;
 	private int answer;
 	private String comment;	
 	
-	public CandidateAnswer(String candidate_id, String question_id, String answer, String comment) {
+	public CandidateAnswer(String candidateId, String questionId, String answer, String comment) {
 		// TODO Auto-generated constructor stub
-		setCandidateId(candidate_id);
-		setQuestionId(question_id);
+		setCandidateId(candidateId);
+		setQuestionId(questionId);
 		setAnswer(answer);
 		this.comment=comment;
 		
@@ -20,14 +20,14 @@ public class CandidateAnswer {
 	}
 	
 	public int getCandidateId() {
-		return candidate_id;
+		return candidateId;
 	}
-	public void setCandidateId(int candidate_id) {
-		this.candidate_id = candidate_id;
+	public void setCandidateId(int candidateId) {
+		this.candidateId = candidateId;
 	}
-	public void setCandidateId(String candidate_id) {
+	public void setCandidateId(String candidateId) {
 		try {
-			this.candidate_id = Integer.parseInt(candidate_id);
+			this.candidateId = Integer.parseInt(candidateId);
 		}
 		catch(NumberFormatException | NullPointerException e) {
 			//Do nothing - the value of id won't be changed
@@ -35,14 +35,14 @@ public class CandidateAnswer {
 	}
 	
 	public int getQuestionId() {
-		return question_id;
+		return questionId;
 	}
-	public void setQuestionId(int question_id) {
-		this.question_id = question_id;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
-	public void setQuestionId(String question_id) {
+	public void setQuestionId(String questionId) {
 		try {
-			this.question_id = Integer.parseInt(question_id);
+			this.questionId = Integer.parseInt(questionId);
 		}
 		catch(NumberFormatException | NullPointerException e) {
 			//Do nothing - the value of id won't be changed
@@ -69,6 +69,11 @@ public class CandidateAnswer {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	
+	@Override
+	public String toString() {
+		return "CandidateAnswer [candidateId=" + candidateId + ", questionId=" + questionId + ", answer=" + answer + " comment=" + comment+ "]";
 	}	
 
 }

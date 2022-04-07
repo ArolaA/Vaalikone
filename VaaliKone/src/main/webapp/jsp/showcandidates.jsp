@@ -49,7 +49,8 @@ else
 						<td>${candidate.firstname} </td>
 						<td>${candidate.party} </td> 
 						<td><a class='button' href='/confirmDelete?id=${candidate.id}'>poista</a></td>
-						<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>				
+						<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>
+						<td><a class='button4' href='/showonecandidateanswers?id=${candidate.id}'>vastaukset</a></td>				
 					</tr>
 				</c:forEach>
 				<tr>
