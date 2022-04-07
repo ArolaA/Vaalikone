@@ -9,42 +9,42 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="../mycss.css">
+		<link rel="stylesheet" type="text/css" href="../questionform.css">
 		<title>Kysymykset</title>
 	</head>
 	<body>
 		<div class="background">
 			<div class="frame">
-				<div class="heading">
-					<div id="heading">
-						<h2>Kysymykset</h2>
-					</div>
-				</div>
-				<div class="questionlist">
+				<a href='../index.html' class="btn-grad">Takaisin</a>
+				<h2 class="heading">Kysymykset</h2>
+
 					<form method="post" name="valinta">
-						<table>
-							<tr>
-							    <th class="id_column">ID</th>
-							    <th class="question_column">Kysymys</th>
-						  	</tr>
-							<c:forEach var="question" items="${requestScope.questionlist}">
-								<tr>
-									<td class="id_column">${question.id} </td>
-									<td>${question.question} </td>
-								</tr>
-								
-									<td><input type="radio" name="valinta" value="1">1 samaa mieltä</td>
-									<td><input type="radio" name="valinta" value="2">2 suht samaa mieltä</td>
-									<td><input type="radio" name="valinta" value="3">3</td>
-									<td><input type="radio" name="valinta" value="4">4</td>
-									<td><input type="radio" name="valinta" value="5">5</td>
-								
-							</c:forEach>
-							<tr>
-								<td><a href='../index.html' class="btn-grad">Takaisin</a></td>
-							</tr>
-						</table>
+					<c:forEach var="question" items="${requestScope.questionlist}">
+
+						<div class="question">
+
+							<p class="questionheader">${question.id}. ${question.question}</p>
+
+							<div class="answerbuttons">
+								<div class="answerbuttonheader">
+									<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+								</div>
+								<div class="radiobuttons">
+									<input type="hidden" id="q${question.id}id" name="q${question.id}id" value="${question.id}">
+									<input type="radio" id="q${question.id}-1" name="q${question.id}answer" value="1">
+									<input type="radio" id="q${question.id}-2" name="q${question.id}answer" value="2">
+									<input type="radio" id="q${question.id}-3" name="q${question.id}answer" value="3">
+									<input type="radio" id="q${question.id}-4" name="q${question.id}answer" value="4">
+									<input type="radio" id="q${question.id}-5" name="q${question.id}answer" value="5">
+								</div>
+								<div class="scale">
+									<p>1=täysin samaa mieltä,2=jokseenkin eri mieltä,3=ei samaa eikä eri mieltä,4=jokseenkin samaa mieltä,5=täysin eri mieltä</p>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+
 					</form>
-				</div>
 			</div>
 		</div>
 	</body>
