@@ -27,7 +27,7 @@ else
 	}
 %>
 <div class="background">	  	  	
-	  	<div class="frame adminview" style="padding-bottom: 60px;">
+	  	<div class="frame adminview" style="padding-bottom: 5px;">
 	  	<div class="header">
 		  	<div class="column adminlogo">	 
 		  		<img src="/img/admin.png" alt="admin logo">
@@ -48,7 +48,10 @@ else
 				  <li><a class="btn-grad" href="#">toiminto4</a></li>
 				</ul>			    
 		    </div>
-		 </div>
+		    
+		     <p class="copyright">&copy; 2022 Ari-Jussi Ahonen, Arsi Arola & Oskari Ahoniemi. All rights reserved.</p>
+		    
+		 </div>		 
 	   </div>	   	   	   		
   </body>
 </html>

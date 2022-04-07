@@ -241,6 +241,34 @@ public class Dao {
 				return null;
 			}
 		}
+		
+		//read one candidates answers from the database based on the candidate-id and 
+		//return them as an CandidateAnswer -object
+		public ArrayList<CandidateAnswer> readOneCandidatesAnswer(String id) {
+			
+			ArrayList<CandidateAnswer> list=new ArrayList<>();
+
+			try {
+				String sql="SELECT * FROM vastaukset WHERE ehdokas_id=?";
+				PreparedStatement pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				ResultSet RS=pstmt.executeQuery();
+				
+				while (RS.next()){
+					CandidateAnswer a=new CandidateAnswer();
+					a.setCandidateId(RS.getInt("ehdokas_id"));
+					a.setQuestionId(RS.getString("kysymys_id"));
+					a.setAnswer(RS.getString("vastaus"));
+					a.setComment(RS.getString("kommentti"));
+					list.add(a);
+				}
+				return list;
+			}
+			catch(SQLException e) {
+				return null;
+			}
+		}
+		
 
 	//kysymyksiin liittyvät tähän
 	

@@ -14,7 +14,7 @@
 	 text-align: center;
 	 text-decoration: none;
 	 display: inline-block;
-	 font-size: 16px;
+	 font-size: 14px;
 	 font-weight: bold;
 	 margin: 4px 2px;
 	 cursor: pointer;
@@ -32,7 +32,7 @@
 	 text-align: center;
 	 text-decoration: none;
 	 display: inline-block;
-	 font-size: 16px;
+	 font-size: 14px;
 	 font-weight: bold;
 	 margin: 4px 2px;
 	 cursor: pointer;
@@ -51,9 +51,27 @@
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 18px;
+	font-size: 14px;
 	font-weight:bold;
 	margin: 4px 4px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.button4
+ {	 	
+	background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border: 1px solid black;
+	color: ivory;
+	padding: 7px;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 4px 2px;
 	cursor: pointer;
 	text-transform: uppercase;
 }
@@ -105,12 +123,12 @@
   text-decoration: none;
 }     
 
- .button:hover, .button2:hover, .button3:hover, input[type=submit]:hover, .loginbutton:hover
+ .button:hover, .button2:hover, .button3:hover, .button4:hover, input[type=submit]:hover, .loginbutton:hover
  {		
 	color: darkgrey;	
  }
  
- .button:active, .button2:active, .button3:active, input[type=submit]:active, .loginbutton:active
+ .button:active, .button2:active, .button3:active, .button4:active, input[type=submit]:active, .loginbutton:active
 {  	
   	box-shadow: 0 5px #666;
   	transform: translateY(4px);
@@ -119,7 +137,7 @@
 .id_column
 {
  	text-align: center;
- 	width: 60px; 	
+ 	width: 30px; 	
 } 
 
 .name_column
@@ -130,8 +148,8 @@
 .candidatelist td
 {
 	color:black;
-	font-size: 18px;
-	padding: 5px;
+	font-size: 17px;
+	padding: 0px 3px 0px 3px;
 	font-weight: bold;
 }
 
@@ -169,16 +187,16 @@ body
 
  .logo
 {  
-  margin-bottom:20px;
-  display: flex;
-  justify-content: center; 
+	margin-bottom:40px;
+	display: flex;
+	justify-content: center; 
 }
 
 .logo img
 {
 	height: 250px;
 	width: auto;
-	border-radius: 10% !important; 
+	border-radius: 8%; 
 }
 
 .logout
@@ -274,6 +292,19 @@ td.loginlogo
 	font-size: 12px;
 }
 
+p.copyright
+{
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;	
+	border-radius: 5px;
+	font-size: 12px;
+	
+}
+
 .heading
 {
 	display: flex;
@@ -360,6 +391,23 @@ h2.addcandidate_heading
     font-size:18px;
     width: 80%;
     margin-bottom: 10px;
+}
+
+.confirmdeletewindow, .confirmdeletebutton
+{
+	display: flex;
+	justify-content: center;
+}
+
+.confirmdeletemessage
+{
+	width: 70%;
+	color: ivory;
+	text-align: center;
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
 }
 
 

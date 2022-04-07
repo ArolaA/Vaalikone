@@ -77,6 +77,34 @@ p.candidateidheading
 		
 }
 
+h1.candidateIdheading, h2.addcandidate_heading
+{	
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	color:ivory;
+	padding: 20px;
+	text-align:center;
+	border-radius: 10px;
+	margin-left: 8%;
+	margin-right: 8%;
+	margin-top: 40px;
+	margin-bottom: 40px;
+		
+}
+
+h3.noanswers
+{
+	background: -webkit-linear-gradient(to right, #EA384D, #D31027);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #EA384D, #D31027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color:ivory;
+	padding: 20px;
+	text-align:center;
+	border-radius: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+	text-transform: uppercase;
+	
+}
+
 select#candidateid
 {
 	font-size: 20px;
