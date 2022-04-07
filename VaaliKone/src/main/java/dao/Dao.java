@@ -8,8 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import data.Candidate;
+
+import data.CandidateAnswer;
+import data.CandidateQuestion;
+import data.Question;
+
 
 import java.sql.Connection;
 
@@ -60,7 +66,7 @@ public class Dao {
 				c.setWhat(RS.getString("mita_asioita_haluat_edistaa"));
 				c.setProfession(RS.getString("ammatti"));
 				list.add(c);
-			}
+			}			
 			return list;
 		}
 		catch(SQLException e) {
@@ -182,5 +188,80 @@ public class Dao {
 			return null;
 		}
 	}
+	
+	//adds a candidates answer to the database and return a boolean value according if the adding was a success or not
+	public Boolean addCandidateAnswer(CandidateAnswer a) {
+		try {
+			String sql="INSERT INTO vastaukset (ehdokas_id, kysymys_id, vastaus, kommentti) VALUES (?, ?, ?, ?)";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, a.getCandidateId());
+			pstmt.setInt(2, a.getQuestionId());
+			pstmt.setInt(3, a.getAnswer());
+			pstmt.setString(4, a.getComment());					
+			pstmt.executeUpdate();
+			return true;
+		}		
+		catch(SQLException e) {	
+			return false;
+		}
+//		
+	}	
+	
+	//update candidates answers to the database
+		public void updateCandidateAnswer(CandidateAnswer a) {
+			try {
+				String sql="UPDATE vastaukset SET vastaus=?, kommentti=? WHERE ehdokas_id=? AND kysymys_id=?";
+				PreparedStatement pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, a.getAnswer());
+				pstmt.setString(2, a.getComment());
+				pstmt.setInt(3, a.getCandidateId());
+				pstmt.setInt(4, a.getQuestionId());
+				pstmt.executeUpdate();
+			}
+			catch(SQLException e) {
+			
+			}
+		}
+	
+	//read all questions for the candidate from the database and return them in an arraylist
+		public ArrayList<CandidateQuestion> readAllCandidateQuestions() {
+			ArrayList<CandidateQuestion> list=new ArrayList<>();
+			try {
+				Statement stmt=conn.createStatement();
+				ResultSet RS=stmt.executeQuery("select * from kysymykset");
+				while (RS.next()){
+					CandidateQuestion q=new CandidateQuestion();
+					q.setId(RS.getInt("kysymys_id"));
+					q.setQuestion(RS.getString("kysymys"));					
+					list.add(q);
+				}				
+				return list;
+			}
+			catch(SQLException e) {
+				return null;
+			}
+		}
+
+	//kysymyksiin liittyvät tähän
+	
+	//READ Kysymykset
+	public ArrayList<Question> readAllQuestions() {
+		ArrayList<Question> list = new ArrayList<>();
+		try {
+			Statement stmt=conn.createStatement();
+			ResultSet RS=stmt.executeQuery("select * from kysymykset");
+			while (RS.next()){
+				Question q = new Question();
+				q.setId(RS.getInt("kysymys_id"));
+				q.setQuestion(RS.getString("kysymys"));
+				list.add(q);
+			}
+			return list;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
 
 }

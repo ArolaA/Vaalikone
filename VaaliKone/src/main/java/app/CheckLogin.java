@@ -66,7 +66,7 @@ public class CheckLogin extends HttpServlet {
 	    else
 	    {
 	    	RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
-	    	String failed = "V‰‰r‰ k‰ytt‰j‰tunnus tai salasana!";
+	    	String failed = "V‰‰r‰ k‰ytt‰j‰tunnus tai salasana!!!";
 	    	request.setAttribute("login", failed);
 	    	rd.include(request, response);
 	    }
