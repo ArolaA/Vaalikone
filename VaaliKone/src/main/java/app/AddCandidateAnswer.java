@@ -52,8 +52,9 @@ public class AddCandidateAnswer extends HttpServlet {
 				response.setCharacterEncoding("UTF-8");
 				
 				PrintWriter out = response.getWriter();				
-								
-		        Enumeration<String> parameter = request.getParameterNames();		        
+				
+				//get the parameter names from jsp and set them to Enumerator
+		        Enumeration<String> parameter = request.getParameterNames();       		        
 		        
 		        int count = 0;
 		        int questions = 0;
@@ -68,12 +69,12 @@ public class AddCandidateAnswer extends HttpServlet {
 		        //define the number of questions based on the number of parameters 
 		        questions = (count-1)/3;		       
 		        
-		        String candidateid=request.getParameter("candidateid");
+		        String candidateid=request.getParameter("candidateid");		     
 		        
 		        ArrayList<CandidateQuestion> list=null;
 				ArrayList<Candidate> list2=null;
 		        
-		        //loop through all the question-parameter and add or update them to the database
+		        //loop through all the question-parameters and add or update them to the database
 		        for(int i = 1; i <= questions; i++) 
 	            {
 		        	

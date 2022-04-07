@@ -17,9 +17,14 @@
 </head>
 
 <body>
-	<h2>Valittu ehdokas on poistettu</h2>
+ <div class="background">	  	  	
+	<div class="frame" style="padding: 20px; width: 30%; text-align: center;">
+		<h2>Valittu ehdokas on poistettu</h2>	
+			
+		<a href='jsp/admin.jsp' class="button3">Takaisin</a>
 
-		
-<a href='jsp/admin.jsp' class="button3">Takaisin</a>
+	</div>
+</div>
+
 </body>
 </html>
