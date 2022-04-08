@@ -9,7 +9,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="../mycss.css">
-		<link rel="stylesheet" type="text/css" href="../questionform.css">
 		<title>Kysymykset</title>
 	</head>
 	<body>
@@ -18,13 +17,11 @@
 				<a href='../index.html' class="btn-grad">Takaisin</a>
 				<h2 class="heading">Kysymykset</h2>
 
-					<form method="post" name="valinta">
+				<form method="post" name="valinta">
 					<c:forEach var="question" items="${requestScope.questionlist}">
-
-						<div class="question">
-
-							<p class="questionheader">${question.id}. ${question.question}</p>
-
+	
+						<div class="question">	
+							<p class="questionheader">${question.id}. ${question.question}</p>	
 							<div class="answerbuttons">
 								<div class="answerbuttonheader">
 									<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
@@ -43,8 +40,7 @@
 							</div>
 						</div>
 					</c:forEach>
-
-					</form>
+				</form>
 			</div>
 		</div>
 	</body>

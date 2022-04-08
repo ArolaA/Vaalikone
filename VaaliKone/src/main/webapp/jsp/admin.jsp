@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
 <%  
 if (session.getAttribute("user") != null) 
 	{
@@ -26,6 +27,7 @@ else
 	  response.sendRedirect("/jsp/login.jsp");            
 	}
 %>
+
 <div class="background">	  	  	
 	  	<div class="frame adminview" style="padding-bottom: 5px;">
 	  	<div class="header">
@@ -42,10 +44,9 @@ else
 	  	</div> 			
 	  		<div class="navigation">			    
 			    <ul>
-				  <li><a class="btn-grad" href='/ShowCandidates'>Näytä ehdokkaat</a></li>
-				  <li><a class="btn-grad" href='/jsp/addcandidate.jsp'>Lisää ehdokas</a></li>
+				  <li><a class="btn-grad" href='/ShowCandidates'>Ehdokkaat</a></li>
 				  <li><a class="btn-grad" href='/ShowCandidateQuestions'>Ehdokas vastaa</a></li>
-				  <li><a class="btn-grad" href="#">toiminto4</a></li>
+				  <li><a class="btn-grad" href='/ListAllQuestions'>Kysymykset</a></li>
 				</ul>			    
 		    </div>
 		    

@@ -13,10 +13,10 @@
 <title>Ehdokkaan vastaukset</title>
 
 <link rel="stylesheet" type="text/css" href="../mycss.css">
-<link rel="stylesheet" type="text/css" href="../questionform.css">
 
 </head>
 <body>
+
 <%  
 if (session.getAttribute("user") != null) 
 	{
@@ -27,9 +27,15 @@ else
 	  response.sendRedirect("/jsp/login.jsp");            
 	}
 %>
+
 <div class="background">
-	<div class="frame" style="width:60%; padding:20px 40px 40px 40px;">		
-		<h2 class="addcandidate_heading">Valitse mielestäsi sopivin vaihtoehto:</h2>		
+	<div class="frame" style="width:60%; padding:20px 40px 40px 40px;">	
+		<div class="addcandidate">	
+			<div class="addcandidate_heading">
+				<h2>Valitse mielestäsi sopivin vaihtoehto:</h2>
+			</div>
+		</div>		
+		<a href='jsp/admin.jsp' class="btn-grad" style="width:85px; margin-bottom: 20px;">Takaisin</a>	
 			
 		<form action='/AddCandidateAnswer' id="c_answerform" method="POST">		
 			<c:forEach var="question" items="${requestScope.questionlist}">
@@ -67,7 +73,9 @@ else
 			  </select><br><br>					
 			<input type="submit" class="button"  value="Tallenna vastauksesi">
 		</form><br>	
-		<a href='jsp/admin.jsp' class="btn-grad" style="width:85px;">Takaisin</a>			
+		<div class="addquestion_navigation">
+			<a href='/jsp/admin.jsp' class="btn-grad" style="margin-left: 0px;">Takaisin</a>	
+		</div>			
 	</div>
 </div>
 
