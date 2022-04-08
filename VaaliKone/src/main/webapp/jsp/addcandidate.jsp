@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
 <%  
 if (session.getAttribute("user") != null) 
 	{
@@ -26,9 +27,14 @@ else
 	  response.sendRedirect("/jsp/login.jsp");            
 	}
 %>
+
 <div class="background">
-	<div class="frame" style="width:30%; padding:20px 40px 40px 40px;">		
-		<h2 class="addcandidate_heading">Anna ehdokkaan tiedot</h2>		
+	<div class="frame" style="width:30%; padding:20px 40px 40px 40px;">
+		<div class="addcandidate">	
+			<div class="addcandidate_heading">
+				<h2>ehdokkaan lisäys</h2>
+			</div>
+		</div>		
 		<form action='/AddCandidate' id="lisayslomake" method="POST">
 				<label for="id">Ehdokkaan numero:</label><br>
 				<input type="number" id="id" name="id" required><br>
@@ -51,11 +57,9 @@ else
 				<input type="submit" class="button"  value="Tallenna">
 		</form><br>
 		
-		<table style="justify-content:left;">
-			<tr>
-				<td><a href='admin.jsp' class="btn-grad">Takaisin</a></td>								
-			</tr>		
-		</table>
+		<div class="addcandidate_navigation">
+			<a href='/ShowCandidates' class="btn-grad" style="margin-left: 0px;">Takaisin</a>	
+		</div>
 		
 	</div>
 </div>

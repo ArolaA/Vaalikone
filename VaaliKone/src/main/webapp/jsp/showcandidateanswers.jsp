@@ -14,11 +14,11 @@
 <title>Ehdokkaan vastaukset</title>
 
 <link rel="stylesheet" type="text/css" href="../mycss.css">
-<link rel="stylesheet" type="text/css" href="../questionform.css">
 
 </head>
 <body>
-<%-- <%  
+
+<%  
 if (session.getAttribute("user") != null) 
 	{
 	
@@ -27,7 +27,8 @@ else
 	{
 	  response.sendRedirect("/jsp/login.jsp");            
 	}
-%> --%>
+%>
+
 <div class="background">
 	<c:set var="count" value="0" scope="page" ></c:set>
 	<c:set var="questions" value="${requestScope.questionlist}" scope="page" ></c:set>
@@ -39,15 +40,17 @@ else
 	
 		<form action='/AddCandidateAnswer' id="c_answerform" method="POST">		
 			
-				<c:if test="${empty requestScope.answerlist}">
-					<h3 class="noanswers">Et ole vielä vastannut vaalikoneen kysymyksiin.</h3><br>
-					<a href='/ShowCandidateQuestions' class="btn-grad" style="width:125px;">Vastaa kysymyksiin</a>
-					
-				</c:if>
+			<c:if test="${empty requestScope.answerlist}">
+				<h3 class="noanswers">Et ole vielä vastannut vaalikoneen kysymyksiin.</h3><br>
+				<a href='/ShowCandidateQuestions' class="btn-grad" style="width:125px;">Vastaa kysymyksiin</a>
+				
+			</c:if>
 						
 			<c:if test="${!empty requestScope.answerlist}">
 			
-				<h2 class="addcandidate_heading">Valitse mielestäsi sopivin vaihtoehto:</h2>	
+				<a href='/ShowCandidates' class="btn-grad" style="width:125px;">Takaisin</a>
+			
+				<h2 class="addcandidate_heading">Valitse mielestäsi sopivin vaihtoehto:</h2>				
 				
 				<c:forEach items="${requestScope.answerlist}" var="answer">						
 					 
@@ -84,7 +87,7 @@ else
 			</c:if>	
 		</form><br>
 		
-		<a href='/ShowCandidates' class="btn-grad" style="width:125px;">Takaisin ehdokas- listaukseen</a>
+		<a href='/ShowCandidates' class="btn-grad" style="width:125px;">Takaisin</a>
 						
 	</div>
 </div>
