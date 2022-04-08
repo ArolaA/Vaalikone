@@ -291,5 +291,38 @@ public class Dao {
 		}
 	}
 	
+	//adds a question to the database and if operation is a success it returns a list of all questions 
+	public ArrayList<Question> addQuestion(Question q) {
+		try {
+			String sql="INSERT INTO kysymykset (kysymys_id, kysymys) VALUES (?,?)";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, q.getId());
+			pstmt.setString(2, q.getQuestion());							
+			pstmt.executeUpdate();
+			return readAllQuestions();			
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	//deletes a question from the database according to the given string
+	public ArrayList<Question> deleteQuestion(String id) {
+		try {
+			String sql="DELETE FROM kysymykset WHERE kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+			
+			return readAllQuestions();	
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	
+	
+	}
+	
 
 }

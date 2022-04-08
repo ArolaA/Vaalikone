@@ -29,7 +29,7 @@
 		<div class="confirmdeletebutton">
 				<a class='button' style="margin-bottom: 30px;" href='/delete?id=${candidateinfo.id}'>Vahvista poistaminen</a>
 		</div>		
-		<a href='/ShowCandidates' class="btn-grad" style="width:125px;">Takaisin ehdokas- listaukseen</a>
+		<a href='/ShowCandidates' class="btn-grad" style="width:125px;">Takaisin</a>
 	</div>
 </div>
 

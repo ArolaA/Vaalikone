@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
 <%  
 if (session.getAttribute("user") != null) 
 	{
@@ -35,7 +36,11 @@ else
 			</div>			
 		</div>
 		<div class="candidatelist">
-			<table>			
+			<div class="showquestion_navigation">
+				<a href='jsp/admin.jsp' class="btn-grad">Takaisin</a>
+				<a href='jsp/addcandidate.jsp' class="btn-grad"><img src="/img/add_user_logo.png" alt="logout logo">Lisää ehdokas</a>	
+			</div>
+			<table>							
 				<tr>							
 				    <th class="id_column">ID</th>
 				    <th class="name_column">Sukunimi</th>
@@ -52,10 +57,7 @@ else
 						<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä</a></td>
 						<td><a class='button4' href='/showonecandidateanswers?id=${candidate.id}'>vastaukset</a></td>				
 					</tr>
-				</c:forEach>
-				<tr>
-					<td><a href='jsp/admin.jsp' class="btn-grad">Takaisin</a></td>
-				</tr>		
+				</c:forEach>	
 			</table>
 		</div>		
 	</div>	
