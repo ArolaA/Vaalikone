@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import app.CompareAnswer.UserAnswer;
+import data.UserAnswer;
 import data.Candidate;
 
 import data.CandidateAnswer;

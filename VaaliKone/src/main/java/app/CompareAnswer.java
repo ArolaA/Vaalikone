@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Dao;
 import data.Question;
+import data.UserAnswer;
 
 /**
  * Servlet implementation class CompareAnswer
@@ -69,47 +70,6 @@ public class CompareAnswer extends HttpServlet {
 		//Collection<String> values = Map.computeIfAbsent(userAnswer, k -> new ArrayList<>());
 		//TODO useranswer class getters and setters, create a method that creates a list using useranswer
 		//convert given list into hash map
-		
-	}
-	
-	public class UserAnswer {
-		
-		private int id;
-		private String answer;
-		
-		public UserAnswer(String id, String answer) {
-			setId(id);
-			this.answer = answer;
-
-		}
-		public UserAnswer() {
-			// TODO Auto-generated constructor stub
-		}
-		public int getId() {
-			return id;
-		}
-		public void setId(int id) {
-			this.id = id;
-		}
-		public void setId(String id) {
-			try {
-				this.id = Integer.parseInt(id);
-			}
-			catch(NumberFormatException | NullPointerException e) {
-				//Do nothing - the value of id won't be changed
-			}
-		}
-		public String getanswer() {
-			return answer;
-		}
-		public void setAnswer(String answer) {
-			this.answer = answer;
-		}
-		public ArrayList<UserAnswer> getUserAnswer(){
-			ArrayList<UserAnswer> alist = new ArrayList<UserAnswer>();
-
-			return alist;
-		}
 		
 	}
 
