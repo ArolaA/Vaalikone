@@ -13,12 +13,21 @@
 	 border-radius: 5px;
 	 text-align: center;
 	 text-decoration: none;
-	 display: inline-block;
+	 display: flex;
+	 flex-diretion: row;
 	 font-size: 14px;
 	 font-weight: bold;
 	 margin: 4px 2px;
 	 cursor: pointer;
 	 text-transform: uppercase;
+}
+
+.button img, .button2 img, .button4 img
+{
+	
+	width:15px;
+	height: auto;	
+	margin-left: 2px;
 }
 
  .button2
@@ -31,7 +40,8 @@
 	 border-radius: 5px;
 	 text-align: center;
 	 text-decoration: none;
-	 display: inline-block;
+	 display: flex;
+	 flex-diretion: row;
 	 font-size: 14px;
 	 font-weight: bold;
 	 margin: 4px 2px;
@@ -68,7 +78,8 @@
 	border-radius: 5px;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
+	display: flex;
+	flex-diretion: row;
 	font-size: 14px;
 	font-weight: bold;
 	margin: 4px 2px;
@@ -221,32 +232,6 @@ a.loginbutton
 	align-items: center;	
 }
 
-.adminlogo
-{
-	display: flex;
-	flex-direction: column;
-	justify-content: left;
-	align-items: flex-start;
-	text-transform: uppercase;
-}
-
-.adminlogo img
-{
-	height: 60px;
-	width: auto;
-	padding-left: 40px;
-}
-
-.adminlogo p
-{
-	margin: 5px 0px 0px 0px;
-	padding: 7px;
-	font-weight: bold;	
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	color: ivory;
-	border-radius: 10px;
-}
-
 .login
 {
 	display: flex;
@@ -361,6 +346,7 @@ p.copyright
 {
 	list-style-type: none;
 	overflow: hidden;
+	padding-left: 0px;
  }
   
 .navigation li 
@@ -406,6 +392,11 @@ p.copyright
     margin-bottom: 10px;
 }
 
+#lisayslomake input[type="number"]
+{
+	width: 60px;
+}
+
 .confirmdeletewindow, .confirmdeletebutton
 {
 	display: flex;
@@ -437,6 +428,7 @@ p.copyright
 	height: auto;
 	vertical-align:middle;
 	margin-right: 5px;
+	margin-bottom: 1px;
 }
 
 .addquestion_navigation a.btn-grad:nth-of-type(2), .showquestion_navigation a.btn-grad:nth-of-type(2)
@@ -470,6 +462,38 @@ textarea#question.addquestiontext
 	height: 50px;
 	resize: none;
 	margin-bottom: 15px;
+	margin-top: 5px;
+}
+
+textarea.editquestion
+{
+	width: 400px !important;
+	height: 80px !important;
+	resize: none !important;
+	margin-top: 5px;
+}
+
+input#id.editquestionid
+{
+	width: 50px !important;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+
+textarea.editcandidatetext
+{
+	width: 500px !important;
+	height: 100px !important;
+	resize: none !important;
+	margin-top: 5px;
+}
+
+textarea.addcandidatetext
+{
+	width: 400px !important;
+	height: 50px !important;
+	resize: none !important;
 	margin-top: 5px;
 }
 
