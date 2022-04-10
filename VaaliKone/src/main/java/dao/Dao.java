@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import data.UserAnswer;
 import data.Candidate;
 
 import data.CandidateAnswer;
@@ -362,5 +363,22 @@ public class Dao {
 	
 	}
 	
+	public ArrayList<UserAnswer> userAnswerToList(UserAnswer u) {
+		ArrayList<UserAnswer> answerlist = new ArrayList<>();
+		try {
+			int index = 0;
+			while (answerlist.size() > index){
+				
+				answerlist.add(u);
+				index++;
+			}
+			System.out.println("tama on dao answer list " + answerlist);
+			return answerlist;
+		}
+		catch(Exception e) {
+			return null;
+		}
+	}
+
 
 }
