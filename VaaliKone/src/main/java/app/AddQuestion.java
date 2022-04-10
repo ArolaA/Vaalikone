@@ -71,9 +71,28 @@ public class AddQuestion extends HttpServlet {
 			System.out.println("No connection to database");
 		}
 		
-		request.setAttribute("questionlist", list);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/listallquestions.jsp");
-		rd.forward(request, response);
+		// if the returned question-list is empty, then adding a new question has failed and a
+		// javascript pop-up message appears
+		if (list == null) {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Kysymystä ei lisätty tietokantaan.Samalla numerolla on jo kysymys!');");
+			out.println("location='jsp/addquestion.jsp';");
+			out.println("</script>");
+		}
+
+		// if the question-list is returned ok and the question is added successfully
+		// then javascript confirm message appears
+		else {
+			out.println("<script type=\"text/javascript\">");
+			out.println("if(window.confirm('Kysymys lisätty onnistuneesti tietokantaan. Lisätäänkö uusi kysymys?')){;");
+			out.println("location='jsp/addquestion.jsp';}");
+			out.println("else{}");
+			out.println("</script>");
+
+			request.setAttribute("questionlist", list);
+			RequestDispatcher rd=request.getRequestDispatcher("/jsp/listallquestions.jsp");
+			rd.forward(request, response);
+		}		
 		
 	}
 
