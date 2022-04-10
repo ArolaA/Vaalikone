@@ -47,16 +47,21 @@ public class CompareAnswer extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		ArrayList<Question> qlist=null;
-		
+		ArrayList<String> alist = new ArrayList<String>();
 		if (dao.getConnection()) {
 			qlist = dao.readAllQuestions();
 		}
 
 		for(int i = 0; i < qlist.size(); i++){
-			String questionid = request.getParameter("q"+qlist+"id");				
-			String answer = request.getParameter("q"+qlist+"answer");
+			String questionid = request.getParameter("q"+qlist.get(i).getId()+"id");				
+			String answer = request.getParameter("q"+qlist.get(i).getId()+"answer");
 			
 			UserAnswer u = new UserAnswer(questionid, answer);
+			System.out.println("Kysymys id: " + u.getId());
+			System.out.println("Kysymys: " + u.getanswer());
+			
+			alist.add(questionid);
+			alist.add(answer);
 			
 			if (dao.getConnection()) {	
 				dao.userAnswerToList(u);
@@ -65,7 +70,7 @@ public class CompareAnswer extends HttpServlet {
 				System.out.println("Jokin vituillaan");
 			}
 		}
-		
+		System.out.println("Tama on alist " + alist);
 		//HashMap <String, String> userAnswer = new HashMap();
 		//Collection<String> values = Map.computeIfAbsent(userAnswer, k -> new ArrayList<>());
 		//TODO useranswer class getters and setters, create a method that creates a list using useranswer

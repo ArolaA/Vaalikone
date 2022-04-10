@@ -37,7 +37,7 @@ public class UserAnswer {
 	}
 	public ArrayList<UserAnswer> getUserAnswer(){
 		ArrayList<UserAnswer> alist = new ArrayList<UserAnswer>();
-
+		
 		return alist;
 	}
 	

@@ -330,10 +330,11 @@ public class Dao {
 		try {
 			int index = 0;
 			while (answerlist.size() > index){
+				
 				answerlist.add(u);
 				index++;
 			}
-			System.out.println(answerlist);
+			System.out.println("tama on dao answer list " + answerlist);
 			return answerlist;
 		}
 		catch(Exception e) {
