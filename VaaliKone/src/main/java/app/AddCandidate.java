@@ -72,7 +72,7 @@ public class AddCandidate extends HttpServlet {
 		if(list==null)
 		{			
 			out.println("<script type=\"text/javascript\">"); 
-			out.println("alert('Ehdokasta ei lis‰tty tietokantaan.Tarkista ehdokasnumero!!');"); 
+			out.println("alert('Ehdokasta ei lis√§tty tietokantaan.Tarkista ehdokasnumero!!');"); 
 			out.println("location='jsp/addcandidate.jsp';"); 
 			out.println("</script>"); 
 		}
@@ -83,7 +83,7 @@ public class AddCandidate extends HttpServlet {
 		{	
 			
 			out.println("<script type=\"text/javascript\">"); 
-			out.println("if(window.confirm('Ehdokas lis‰tty onnistuneesti tietokantaan. Lis‰t‰‰nkˆ uusi ehdokas?')){;");
+			out.println("if(window.confirm('Ehdokas lis√§tty onnistuneesti tietokantaan. Lis√§t√§√§nk√∂ uusi ehdokas?')){;");
 			out.println("location='jsp/addcandidate.jsp';}");			
 			out.println("else{}");			
 			out.println("</script>");

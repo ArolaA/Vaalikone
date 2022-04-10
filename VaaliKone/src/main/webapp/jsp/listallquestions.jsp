@@ -29,7 +29,7 @@ else
 %>
     
 <div class="background">
-	<div class="frame" style="width: 60%;">
+	<div class="frame" style="width: 65%;">
 		<div class="heading">			
 			<div id="heading">
 				<h2>kysymyslista</h2>
@@ -53,8 +53,8 @@ else
 								${question.question}
 							</div>
 						</td>						
-						<td><a class='button' onclick="return confirm('Kysymys ${question.id} poistetaan. Oletko varma?')" href='/DeleteQuestion?id=${question.id}'>poista</a></td>
-						<td><a class='button2' href='#?id=${question.id}'>päivitä</a></td>				
+						<td><a class='button' onclick="return confirm('Kysymys ${question.id} poistetaan. Oletko varma?')" href='/DeleteQuestion?id=${question.id}'>poista<img src="/img/delete_logo.png" alt="delete logo"></a></td>
+						<td><a class='button2' href='/ReadQuestionToUpdate?id=${question.id}'>päivitä<img src="/img/update_logo.png" alt="update logo"></a></td>				
 					</tr>
 				</c:forEach>					
 			</table>

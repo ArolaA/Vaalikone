@@ -292,6 +292,44 @@ public class Dao {
 		}
 	}
 	
+	// read a single question from the database based on the given id
+	public Question readOneQuestion(String id) {
+		Question q=null;
+		try {
+			String sql="SELECT * FROM kysymykset WHERE kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			
+			while (RS.next()){
+				q= new Question();
+				q.setId(RS.getInt("kysymys_id"));
+				q.setQuestion(RS.getString("kysymys"));
+			}
+			return q;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	//update Question data to the database and return a updated list of questions
+		public ArrayList<Question> updateQuestion(Question q) {
+			try {
+				String sql="UPDATE kysymykset SET kysymys=? WHERE kysymys_id=?";
+				PreparedStatement pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, q.getQuestion());
+				pstmt.setInt(2, q.getId());					
+				pstmt.executeUpdate();
+				return readAllQuestions();
+			}
+			catch(SQLException e) {
+				return null;
+			}
+		}
+	
+	
+	
 	//adds a question to the database and if operation is a success it returns a list of all questions 
 	public ArrayList<Question> addQuestion(Question q) {
 		try {

@@ -31,12 +31,10 @@ else
 <div class="background">	  	  	
 	  	<div class="frame adminview" style="padding-bottom: 5px;">
 	  	<div class="header">
-		  	<div class="column adminlogo">	 
-		  		<img src="/img/admin.png" alt="admin logo">
-		  		<p>admin mode</p>						
+		  	<div class="column">		  							
 		  	</div> 
 		  	<div class="logo column">	 		
-		  		<img src="/img/vaalikone_logo.png" alt="vaalikone logo">
+		  		<img src="/img/vaalikone_logo_admin.jpg" alt="vaalikone logo admin mode">
 		  	</div>
 		  	<div class="column logout">		  			  		
 		  		<a class="loginbutton" href='/logout'>logout<img src="/img/logout_logo.png" alt="logout logo"></a>
