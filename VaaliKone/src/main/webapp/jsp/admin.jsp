@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
 <%  
 if (session.getAttribute("user") != null) 
 	{
@@ -26,15 +27,14 @@ else
 	  response.sendRedirect("/jsp/login.jsp");            
 	}
 %>
+
 <div class="background">	  	  	
 	  	<div class="frame adminview" style="padding-bottom: 5px;">
 	  	<div class="header">
-		  	<div class="column adminlogo">	 
-		  		<img src="/img/admin.png" alt="admin logo">
-		  		<p>admin mode</p>						
+		  	<div class="column">		  							
 		  	</div> 
 		  	<div class="logo column">	 		
-		  		<img src="/img/vaalikone_logo.png" alt="vaalikone logo">
+		  		<img src="/img/vaalikone_logo_admin.jpg" alt="vaalikone logo admin mode">
 		  	</div>
 		  	<div class="column logout">		  			  		
 		  		<a class="loginbutton" href='/logout'>logout<img src="/img/logout_logo.png" alt="logout logo"></a>
@@ -42,10 +42,9 @@ else
 	  	</div> 			
 	  		<div class="navigation">			    
 			    <ul>
-				  <li><a class="btn-grad" href='/ShowCandidates'>Näytä ehdokkaat</a></li>
-				  <li><a class="btn-grad" href='/jsp/addcandidate.jsp'>Lisää ehdokas</a></li>
+				  <li><a class="btn-grad" href='/ShowCandidates'>Ehdokkaat</a></li>
 				  <li><a class="btn-grad" href='/ShowCandidateQuestions'>Ehdokas vastaa</a></li>
-				  <li><a class="btn-grad" href="#">toiminto4</a></li>
+				  <li><a class="btn-grad" href='/ListAllQuestions'>Kysymykset</a></li>
 				</ul>			    
 		    </div>
 		    

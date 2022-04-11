@@ -14,6 +14,7 @@ import java.util.HashMap;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
+import data.UserAnswer;
 import data.Candidate;
 
 import data.CandidateAnswer;
@@ -295,6 +296,96 @@ public class Dao {
 		}
 	}
 	
+
+	// read a single question from the database based on the given id
+	public Question readOneQuestion(String id) {
+		Question q=null;
+		try {
+			String sql="SELECT * FROM kysymykset WHERE kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			
+			while (RS.next()){
+				q= new Question();
+				q.setId(RS.getInt("kysymys_id"));
+				q.setQuestion(RS.getString("kysymys"));
+			}
+			return q;
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	//update Question data to the database and return a updated list of questions
+		public ArrayList<Question> updateQuestion(Question q) {
+			try {
+				String sql="UPDATE kysymykset SET kysymys=? WHERE kysymys_id=?";
+				PreparedStatement pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, q.getQuestion());
+				pstmt.setInt(2, q.getId());					
+				pstmt.executeUpdate();
+				return readAllQuestions();
+			}
+			catch(SQLException e) {
+				return null;
+			}
+		}
+	
+	
+	
+	//adds a question to the database and if operation is a success it returns a list of all questions 
+	public ArrayList<Question> addQuestion(Question q) {
+		try {
+			String sql="INSERT INTO kysymykset (kysymys_id, kysymys) VALUES (?,?)";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, q.getId());
+			pstmt.setString(2, q.getQuestion());							
+			pstmt.executeUpdate();
+			return readAllQuestions();			
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	}
+	
+	//deletes a question from the database according to the given string
+	public ArrayList<Question> deleteQuestion(String id) {
+		try {
+			String sql="DELETE FROM kysymykset WHERE kysymys_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+			
+			return readAllQuestions();	
+		}
+		catch(SQLException e) {
+			return null;
+		}
+	
+	
+	}
+	
+	public ArrayList<UserAnswer> userAnswerToList(UserAnswer u) {
+		ArrayList<UserAnswer> answerlist = new ArrayList<>();
+		try {
+			int index = 0;
+			while (answerlist.size() > index){
+				
+				answerlist.add(u);
+				index++;
+			}
+			System.out.println("tama on dao answer list " + answerlist);
+			return answerlist;
+		}
+		catch(Exception e) {
+			return null;
+		}
+	}
+
+=======
 	public HashMap<ArrayList<Object>, Integer> readAnswersCandidate() {
 
 	try {
@@ -354,5 +445,6 @@ public class Dao {
 		return null;
 	}
 }
+
 
 }
