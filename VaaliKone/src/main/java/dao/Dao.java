@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 
 import data.Candidate;
 
@@ -291,5 +295,64 @@ public class Dao {
 		}
 	}
 	
+	public HashMap<ArrayList<Object>, Integer> readAnswersCandidate() {
+
+	try {
+		Statement stmt=conn.createStatement();
+
+		ResultSet RS=stmt.executeQuery("select ehdokas_id, kysymys_id, vastaus FROM vastaukset;");
+		
+		HashMap<ArrayList<Object>, Integer> map= new HashMap<>();
+		ArrayList<Object> mapKey= new ArrayList<>();
+		while (RS.next()){
+			
+			
+			String cand_id = (RS.getString("ehdokas_id"));  
+					
+			String ques_id = (RS.getString("kysymys_id"));
+			 
+	
+			int answer_id=(RS.getInt("vastaus"));
+
+			mapKey.add(cand_id);
+			mapKey.add(new Integer(ques_id));
+			
+			map.put(mapKey, answer_id);
+			
+			
+
+		}
+		return map;
+		
+	}
+	catch(SQLException e) {
+		return null;
+	}
+}
+	public com.google.common.collect.Table<Integer, Integer, Integer> readAnswersCandidate2() {
+
+	try {
+		Statement stmt=conn.createStatement();
+
+		ResultSet RS=stmt.executeQuery("select ehdokas_id, kysymys_id, vastaus FROM vastaukset;");
+		
+
+		Table<Integer, Integer, Integer> answerTable = HashBasedTable.create();
+		
+		while (RS.next()){
+			int cand_id = (RS.getInt("ehdokas_id"));  
+			int ques_id = (RS.getInt("kysymys_id"));
+			int answer_id=(RS.getInt("vastaus"));
+			
+			answerTable.put(cand_id, ques_id, answer_id);
+			
+		}
+		return answerTable;
+		
+	}
+	catch(SQLException e) {
+		return null;
+	}
+}
 
 }
