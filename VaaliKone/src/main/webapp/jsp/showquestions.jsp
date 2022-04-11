@@ -14,10 +14,9 @@
 	<body>
 		<div class="background">
 			<div class="frame">
-				<a href='../index.html' class="btn-grad">Takaisin</a>
 				<h2 class="heading">Kysymykset</h2>
-
-				<form method="post" name="valinta">
+				<a href='../index.html' class="btn-grad">Takaisin</a>
+				<form action=/CompareAnswer method="post" name="valinta">
 					<c:forEach var="question" items="${requestScope.questionlist}">
 	
 						<div class="question">	
@@ -40,6 +39,7 @@
 							</div>
 						</div>
 					</c:forEach>
+					<input type="submit" class="button" value="Vertaile">
 				</form>
 			</div>
 		</div>
