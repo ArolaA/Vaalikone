@@ -60,14 +60,17 @@ public class AnswersCompare extends HttpServlet {
 //			candMap=dao.readAnswersCandidate();
 			answerTable=dao.readAnswersCandidate2();
 		}
-			
-		int scores[] = null ;
+//			
+//		int scores[] = null ;
+//		
+//		for (int i=0, a=1; i<=list.size() && a<=answerTable.size();i++) {
+//			
+//			while (i<=list.size()) {
+//			scores[i]=answerTable.get(a, i);
+//			}
+//			a++;
+//		}
 		
-		for (int i=0, a=1; i<=list.size() && a<=answerTable.size();i++, a++) {
-			
-			scores[i]=answerTable.get(a, i);
-		}
-			
 		
 //			for (ArrayList<Object> key : candMap.keySet()) {
 //				out.println(key);
@@ -127,4 +130,8 @@ public class AnswersCompare extends HttpServlet {
 //		
 	}
 
+	protected void answerValues(int i) {
+		
+		
+	}
 }
