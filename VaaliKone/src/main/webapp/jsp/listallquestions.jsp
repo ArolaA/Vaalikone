@@ -54,7 +54,7 @@ else
 							</div>
 						</td>						
 						<td><a class='button' onclick="return confirm('Kysymys ${question.id} poistetaan. Oletko varma?')" href='/DeleteQuestion?id=${question.id}'>poista<img src="/img/delete_logo.png" alt="delete logo"></a></td>
-						<td><a class='button2' href='/ReadQuestionToUpdate?id=${question.id}'>päivitä<img src="/img/update_logo.png" alt="update logo"></a></td>				
+						<td><a class='button2' href='/ReadQuestionToUpdate?id=${question.id}'>muokkaa<img src="/img/edit_logo.png" alt="edit logo"></a></td>				
 					</tr>
 				</c:forEach>					
 			</table>
