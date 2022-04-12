@@ -385,7 +385,7 @@ public class Dao {
 		}
 	}
 
-=======
+
 	public HashMap<ArrayList<Object>, Integer> readAnswersCandidate() {
 
 	try {
