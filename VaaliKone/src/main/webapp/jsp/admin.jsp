@@ -45,6 +45,7 @@ else
 				  <li><a class="btn-grad" href='/ShowCandidates'>Ehdokkaat</a></li>
 				  <li><a class="btn-grad" href='/ShowCandidateQuestions'>Ehdokas vastaa</a></li>
 				  <li><a class="btn-grad" href='/ListAllQuestions'>Kysymykset</a></li>
+				  <li><a class="btn-grad" href='/logout'>poistu</a></li>
 				</ul>			    
 		    </div>
 		    

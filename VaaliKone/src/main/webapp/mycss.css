@@ -1,6 +1,7 @@
- html 
+ html, body 
 {
   font-family: Optima, Verdana, sans-serif !important;
+  scroll-behavior: smooth;
 }
 
  .button, input[type=submit] 
@@ -87,7 +88,7 @@
 	text-transform: uppercase;
 }
 
-.loginbutton, .loginform input[type=submit] 
+.loginbutton
 {	
 	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 	border: none;
@@ -298,7 +299,7 @@ p.copyright
   	width: 100%;
   	justify-content: center;
 	text-align: center;	
-	margin-bottom: 40px;
+	margin-bottom: 25px;
 }
 
 #heading
@@ -377,10 +378,11 @@ p.copyright
 
 .addcandidate_heading
 {
-	text-align: center;	
-	width: 70%;
+	text-align: center;		
 	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 	color: ivory;
+	padding-left: 20px;
+	padding-right: 20px;
 	text-transform: uppercase;
 	border-radius: 10px;
 }
@@ -390,11 +392,17 @@ p.copyright
     font-size:18px;
     width: 80%;
     margin-bottom: 10px;
+    font-family: Optima, Verdana, sans-serif !important;
 }
 
 #lisayslomake input[type="number"]
 {
 	width: 60px;
+}
+
+#lisayslomake label
+{
+	font-weight: bold;
 }
 
 .confirmdeletewindow, .confirmdeletebutton
@@ -476,7 +484,6 @@ textarea.editquestion
 input#id.editquestionid
 {
 	width: 50px !important;
-	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 20px;
 }
@@ -600,13 +607,84 @@ h3.noanswers
 	border-radius: 10px;
 	margin-left: 10%;
 	margin-right: 10%;
-	text-transform: uppercase;
-	
+	text-transform: uppercase;	
 }
 
 select#candidateid
 {
 	font-size: 20px;
+}
+
+.candidatedetails
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+}
+
+.candidatedetailsnavigation
+{
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.candidatedetailstext
+{
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	color:ivory;
+	padding: 20px;
+	border: 2px solid black;
+	border-radius: 10px;
+	box-shadow: 5px 5px grey;
+	margin-bottom: 30px;
+	width: 70%;	
+}
+
+.candidatedetails p
+{
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+
+p.candidatedetailsnumber
+{
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+
+p.candidatedetailsheading
+{
+	font-weight: bold;
+	margin-top: 12px;
+	font-size: 18px;
+}
+
+#scrollBtn 
+{
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 100px;
+  z-index: 99;
+  border: none;
+  outline: none; 
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  color: ivory;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  border-radius: 10px; 
+  font-size: 22px; 
+}
+
+#scrollBtn:hover 
+{  
+  opacity: 0.7;
 }
 
 

@@ -49,6 +49,7 @@ public class AddQuestion extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		//set the right character enconding, so that special characters print out properly
+		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 				
 		PrintWriter out = response.getWriter();		
