@@ -3,7 +3,7 @@ package app;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,14 +21,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.ImmutableTable;
-import com.google.common.collect.Ordering;
 import com.google.common.collect.Table;
 
 import dao.Dao;
 import data.Candidate;
-import data.CandidateAnswer;
 import data.Question;
 import data.UserAnswer;
 
