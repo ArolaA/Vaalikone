@@ -38,6 +38,7 @@ public class AddCandidate extends HttpServlet {
 		throws IOException, ServletException {	
 		
 		//set the right character enconding, so that special characters print out properly
+		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter(); 

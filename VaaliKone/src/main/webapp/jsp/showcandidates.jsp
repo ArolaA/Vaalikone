@@ -54,8 +54,8 @@ else
 						<td>${candidate.firstname} </td>
 						<td>${candidate.party} </td> 
 						<td><a class='button' href='/confirmDelete?id=${candidate.id}'>poista<img src="/img/delete_logo.png" alt="delete logo"></a></td>
-						<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>päivitä<img src="/img/update_logo.png" alt="update logo"></a></td>
-						<td><a class='button4' href='/showonecandidateanswers?id=${candidate.id}'>vastaukset<img src="/img/answer_logo.png" alt="update logo"></a></td>				
+						<td><a class='button2' href='/readtoupdate?id=${candidate.id}'>muokkaa<img src="/img/edit_logo.png" alt="edit logo"></a></td>
+						<td><a class='button4' href='/showonecandidateanswers?id=${candidate.id}'>vastaukset<img src="/img/answer_logo.png" alt="edit logo"></a></td>				
 					</tr>
 				</c:forEach>	
 			</table>

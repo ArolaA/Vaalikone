@@ -23,15 +23,15 @@
 			<form id="lisayslomake" action='update' method='post'>
 				<label for="id">Ehdokkaan numero</label><br>
 				<input type='number' name='id' value='${requestScope.candidate.id}' readonly><br>
-				<label for="ika">ikä</label><br>
+				<label for="ika">Ikä</label><br>
 				<input type='number' name='ika' value='${requestScope.candidate.age}' required min="1"><br> 
-				<label for="sukunimi">sukunimi</label><br>
+				<label for="sukunimi">Sukunimi</label><br>
 				<input type='text' name='sukunimi' value='${requestScope.candidate.surname}' required><br>
-				<label for="etunimi">etunimi</label><br>
+				<label for="etunimi">Etunimi</label><br>
 				<input type='text' name='etunimi' value='${requestScope.candidate.firstname}' required><br>
-				<label for="puolue">puolue</label><br>
+				<label for="puolue">Puolue</label><br>
 				<input type='text' name='puolue' value='${requestScope.candidate.party}' required><br>
-				<label for="kotiopaikkakunta">kotipaikkakunta</label><br> 
+				<label for="kotiopaikkakunta">Kotipaikkakunta</label><br> 
 				<input type='text' name='kotipaikkakunta' value='${requestScope.candidate.hometown}' required><br> 
 				<label for="miksi">Miksi haet eduskuntaan?</label><br>
 				<textarea class="editcandidatetext" name="miksi" form="lisayslomake">${requestScope.candidate.why}</textarea> <br>

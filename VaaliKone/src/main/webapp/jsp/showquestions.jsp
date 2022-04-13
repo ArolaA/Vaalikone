@@ -13,9 +13,13 @@
 	</head>
 	<body>
 		<div class="background">
-			<div class="frame">
-				<h2 class="heading">Kysymykset</h2>
-				<a href='../index.html' class="btn-grad">Takaisin</a>
+			<div class="frame" style="width: 70%;">
+				<div class="heading">
+				<div id="heading">
+					<h2>kysymykset</h2>
+				</div>
+			</div>	
+				<a href='../index.html' class="btn-grad" style="width: 85px;">Takaisin</a>
 				<form action=/CompareAnswer method="post" name="valinta">
 					<c:forEach var="question" items="${requestScope.questionlist}">
 	
@@ -43,5 +47,29 @@
 				</form>
 			</div>
 		</div>
-	</body>
+		<button onclick="topFunction()" id="scrollBtn" title="Go to top"><b>&#11165;</b></button>
+		<script>
+			// javascript for scroll to top button
+			mybutton = document.getElementById("scrollBtn");	
+			
+			window.onscroll = function() {
+				scrollFunction()
+			};
+	
+			function scrollFunction() {
+				if (document.body.scrollTop > 50
+						|| document.documentElement.scrollTop > 50) {
+					mybutton.style.display = "block";
+				} else {
+					mybutton.style.display = "none";
+				}
+			}
+	
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0; // For Safari
+				document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			}
+		</script>		
+</body>
 </html>
