@@ -21,7 +21,7 @@
 			        <h3>Anna käyttäjänimi ja salasana</h3>			        			  
 			        <table>			        	
 			            <tr>
-			            	<td class="loginlogo"><img src="/img/user_logo.png" alt="username logo">	                
+			             	<td class="loginlogo"><img src="/img/user_logo.png" alt="username logo">	                
 			                	<input type="text" name="user" required placeholder="käyttäjänimi"></td>
 			            </tr>			            	                     
 			            <tr>
@@ -31,8 +31,9 @@
 			        </table>
 			        <p style="color:red; font-size: 12px; font-weight: bold; text-transform: uppercase;">${requestScope.login} </p>
 			                 
-			        <input class="loginbutton" type="submit" value="Kirjaudu">  
-			</form>
+			        <input class="button2" type="submit" value="Kirjaudu">  
+			</form><br>
+			<a href='../index.html' class="btn-grad" style="width: 85px;">Takaisin</a>
 		</div>
 	</div>
 </div>

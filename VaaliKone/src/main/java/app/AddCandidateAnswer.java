@@ -49,6 +49,7 @@ public class AddCandidateAnswer extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		//set the right character enconding, so that special characters print out properly
+		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter();	        		        
@@ -103,7 +104,7 @@ public class AddCandidateAnswer extends HttpServlet {
         
         //print out a confirm message using javascript
         out.println("<script type=\"text/javascript\">"); 
-		out.println("if(window.confirm('Vastaukset lis‰tty onnistuneesti tietokantaan. Annetaanko uudet vastaukset?')){;");
+		out.println("if(window.confirm('Vastaukset lis√§tty onnistuneesti tietokantaan. Annetaanko uudet vastaukset?')){;");
 		out.println("}");			
 		out.println("else{location='jsp/admin.jsp'}");			
 		out.println("</script>");
