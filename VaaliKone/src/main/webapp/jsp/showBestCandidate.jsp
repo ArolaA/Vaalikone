@@ -26,10 +26,13 @@
 				<c:out value=" ${candidate.firstname}"/><br>
 				<c:out value="Puolue: ${candidate.party}"/><br><br> 
 			</div>		
-		</div>	
-	
-		<a href='/ShowCandidates' class="btn-grad" style="width:125px;">Vastaa uudestaan</a>
-		<a href='index.html' class="btn-grad" style="width:125px;">Palaa etusivulle</a>
+			</div>	
+			<div class="navigation">
+			<ul>
+				<li><a href='/ShowCandidates' class="btn-grad" style="width:125px;">Vastaa uudestaan</a></li>
+				<li><a href='index.html' class="btn-grad" style="width:125px;">Palaa etusivulle</a></li>
+			</ul>
+			</div>
 	</div>
 </div>
 </body>
