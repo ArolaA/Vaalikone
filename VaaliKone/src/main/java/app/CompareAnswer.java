@@ -91,94 +91,93 @@ public class CompareAnswer extends HttpServlet {
 				System.out.println("Jokin vituillaan");
 			}
 		}
-		
-//		out.println("Tama on alist " + alist);
-//		out.println(answerTable);
-//		
-//		out.println(candidates.size());
-//		out.println("Answertablen 1,1-paikka"+answerTable.get(1,1));
-//		out.println(Integer.parseInt(alist.get(0)));
-//		out.println(alist.size());
-//		Map<Integer, Integer> candAnswer1= answerTable.row(1);
-//		out.println(candAnswer1);
-		
-
 			
-		// Creating table to store scores from different candidates
+		// Creating table and map to store scores from different candidates
 		
 		Table<Integer, Integer, Integer> scoreTable = HashBasedTable.create();
-		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-//		Map<Integer, Integer> scoresTable= new ap<Integer, Integer>();
+		HashMap<Integer, Integer> result = new HashMap<Integer, Integer>();
+
 		
 		// Loop to calculate the answer differences between the user and candidates
 	
 		
-		
-		for(int z=1; z<=candidates.size();z++)
-		{
-//			Map<Integer, Integer> candAnswer= answerTable.row(z);
-			int score1=0;
-//			int ans;
-			int index=1;
-			int ansScore=0;
-			int cand_id=z;
-			
-//			out.println("Ulompi looppi: "+z);
-			
-			
-			for(int x=0; x < alist.size(); x++)
+			//Count results from all candidates
+			for(int z=1; z<=candidates.size();z++)
 			{
-				index=x+1;
-//				out.println("X arvo: "+x);
-//				out.println("Z arvo: "+z);
-				int userValue = Integer.parseInt(alist.get(x));
-//				int userValue = 0;
-				int candValue = answerTable.get(z,x+1);
-//				int candValue = 0;
-//				out.println("Uservaluen arvo: " +userValue);
-//				out.println("Candvaluen arvo: " +candValue);
-				ansScore= Math.abs(userValue - candValue);
-				score1=score1+ansScore;
-//				out.println("Tämän kierroksen pistetilanne: "+score1);
-//				out.println("Sisempi looppi: "+(x+1));
-			}
-			scoreTable.put(index, cand_id, score1);
-			hm.put(cand_id, score1);
-//			out.println(z+".Ehdokkaan pisteet:"+score1);
-			
-			
-		} // End of the counting loop
+	
+				int score1=0;
+	
+				int index=1;
+				int ansScore=0;
+				int cand_id=z;
+	
+				// Count scoring from received use answers
+				for(int x=0; x < alist.size(); x++)
+				{
+					index=x+1;
+					int userValue = 0;
+					int candValue = 0;
+					candValue = answerTable.get(z,x+1);
+	
+					
+							//Check for null-answers from user and convert them to match candidate answer
+							if (alist.get(x)== null)
+							{
+								
+							userValue = candValue;	
+							}
+							else {
+								userValue = Integer.parseInt(alist.get(x));
+							}
+					
+					ansScore= Math.abs(userValue - candValue);
+					score1=score1+ansScore;
+				}
+				scoreTable.put(index, cand_id, score1);
+				result.put(cand_id, score1);
+				
+			} // End of the counting loop
 		
-		out.println(scoreTable);
-		out.println(hm);
+	
 
-		
-        Map<Integer, Integer> hm1 = sortByValue(hm);
-		 for (Map.Entry<Integer, Integer> en : hm1.entrySet()) {
-	            System.out.println("Key = " + en.getKey() +
+		// Arrange result in order of best score
+        Map<Integer, Integer> result1 = sortByValue(result);
+        ArrayList<Integer> scoreResult = new ArrayList<Integer>();
+        
+		 for (Map.Entry<Integer, Integer> en : result1.entrySet()) {
+	            
+			 // add candidate scores to a list by their score
+	         scoreResult.add(en.getKey());
+	         
+	         // Print to console to check that everything works properly
+			 System.out.println("Key = " + en.getKey() +
 	                          ", Value = " + en.getValue());
+	            
 	        }
 		 
-		out.println(hm1);
-
+		 
+		 // Get winning candidate info
+		 String winner = Integer.toString(scoreResult.get(0));
+		 Candidate c=null;
+			if (dao.getConnection()) {
+				c=dao.readOneCandidate(winner);
+			}
+			
+			System.out.println(c.getId());
 		
-		request.setAttribute("scoretable", scoreTable);
+		
+		request.setAttribute("candidate", c);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showBestCandidate.jsp");
 		rd.forward(request, response);
-		
-		
-		request.setAttribute("candidatelist", candidates);
-		RequestDispatcher rd2=request.getRequestDispatcher("/jsp/showBestCandidate.jsp");
-		rd2.forward(request, response);
 	
 
-	}
+	} // DoPost ends
 	
-	public static HashMap<Integer, Integer> sortByValue(HashMap<Integer, Integer> hm){
+	public static HashMap<Integer, Integer> sortByValue(HashMap<Integer, Integer> result){
 		
 		
 		//Create a list from elements of HashMap
-		List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>> (hm.entrySet());
+		List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>> (result.entrySet());
 		
 		// Sorting of the List
 		Collections.sort(list, new Comparator<Map.Entry<Integer, Integer> >() {
