@@ -18,8 +18,8 @@
 
 <div class="background">	  	  	
   	<div class="frame" style="padding-bottom: 20px; width:40%;">
-  		<div class="bestcandidatewindow">
-  			<div class="bestcandidatemessage">
+  		<div class="confirmdeletewindow">
+  			<div class="confirmdeletemessage">
 				<p>Vastauksiesi pohjalta sopivin ehdokas:</p>
 				<c:out value="Ehdokas numero: ${candidate.id}"/><br>
 				<c:out value="Nimi: ${candidate.surname}"/> 
