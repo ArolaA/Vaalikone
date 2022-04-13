@@ -57,7 +57,7 @@ public class CompareAnswer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 		
 		ArrayList<Question> qlist=null;
 		ArrayList<Candidate> candidates=null;
@@ -153,19 +153,42 @@ public class CompareAnswer extends HttpServlet {
 		 
 		 
 		 // Get winning candidate info
-		 String winner = Integer.toString(scoreResult.get(0));
-		 Candidate c=null;
+		 String cand1 = Integer.toString(scoreResult.get(0));
+		 String cand2 = Integer.toString(scoreResult.get(1));
+		 String cand3 = Integer.toString(scoreResult.get(2));
+		 String cand4 = Integer.toString(scoreResult.get(3));
+		 String cand5 = Integer.toString(scoreResult.get(4));
+		 
+		 Candidate c1=null;
+		 Candidate c2=null;
+		 Candidate c3=null;
+		 Candidate c4=null;
+		 Candidate c5=null;
 			if (dao.getConnection()) {
-				c=dao.readOneCandidate(winner);
+				c1=dao.readOneCandidate(cand1);
+				c2=dao.readOneCandidate(cand2);
+				c3=dao.readOneCandidate(cand3);
+				c4=dao.readOneCandidate(cand4);
+				c5=dao.readOneCandidate(cand5);
 			}
 			
-			System.out.println(c.getId());
+			System.out.println(c1.getId());
+			System.out.println(c2.getId());
+			System.out.println(c3.getId());
+			System.out.println(c4.getId());
+			System.out.println(c5.getId());
 		
 		
-		request.setAttribute("candidate", c);
+		request.setAttribute("cand1", c1);
+		request.setAttribute("cand2", c2);
+		request.setAttribute("cand3", c3);
+		request.setAttribute("cand4", c4);
+		request.setAttribute("cand5", c5);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showBestCandidate.jsp");
 		rd.forward(request, response);
 	
+		
+		
 
 	} // DoPost ends
 	
