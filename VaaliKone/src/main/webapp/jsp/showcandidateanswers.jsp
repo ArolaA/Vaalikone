@@ -72,7 +72,7 @@
 											<input type="radio" id="q${answer.questionId}-5" name="q${answer.questionId}answer" value="5" <c:if test="${answer.answer == '5'}">CHECKED</c:if>>
 										</div>
 										<div class="scale">			
-											<p>1=täysin samaa mieltä,2=jokseenkin eri mieltä,3=ei samaa eikä eri mieltä,4=jokseenkin samaa mieltä,5=täysin eri mieltä</p>
+											<p>1=täysin samaa mieltä,2=jokseenkin samaa mieltä,3=ei samaa eikä eri mieltä,4=jokseenkin eri mieltä,5=täysin eri mieltä</p>
 										</div>
 										<div class="commentarea">							
 											<textarea class="comment" id="q${answer.questionId}comment" name="q${answer.questionId}comment" form="c_answerform" placeholder="kommmentti (vapaaehtoinen)">${answer.comment}</textarea>			
