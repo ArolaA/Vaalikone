@@ -24,18 +24,47 @@ import data.Question;
 
 import java.sql.Connection;
 
+/**
+ * Date: 19.4.2022
+ * This is the DAO class that is responsible for accessing the databases.
+ * @author Arsi Arola, Ari-Jussi Ahonen, Oskari Ahoniemi
+ * @version 1.0
+ * 
+ */
 public class Dao {
+	/**
+	 * String value for URL
+	 */
 	private String url;
+	/**
+	 * String value for database user 
+	 */
 	private String user;
+	/**
+	 * String value for database user's password
+	 */
 	private String pass;
+	/**
+	 * Connection session for the database
+	 */
 	private Connection conn;
 	
+	/**
+	 * This is DAO constructor
+	 * @param url constructor for database url
+	 * @param user constructor for database user
+	 * @param pass constructor for database user password
+	 */
 	public Dao(String url, String user, String pass) {
 		this.url=url;
 		this.user=user;
 		this.pass=pass;
 	}
 	
+	/**
+	 * This method establishes connection to the database
+	 * @return returns that connection was created if it is successful or not if it fails
+	 */
 	public boolean getConnection() {
 		try {
 	        if (conn == null || conn.isClosed()) {
@@ -53,7 +82,11 @@ public class Dao {
 			return false;
 		}
 	}
-	//read all candidates from database
+	
+	/**
+	 * This method reads all candidates from database and returns them as a list
+	 * @return returns all candidate values as a list
+	 */
 	public ArrayList<Candidate> readAllCandidates() {
 		ArrayList<Candidate> list=new ArrayList<>();
 		try {
@@ -78,7 +111,12 @@ public class Dao {
 			return null;
 		}
 	}
-	//read single candidate to the update based on the id it gets
+
+	/**
+	 * This method reads single candidate's data to the update class based on the id it gets
+	 * @param id used to determine which candidates data is chosen
+	 * @return c return chosen candidates data as an object
+	 */
 	public Candidate readCandidate(String id) {
 		Candidate c = null;
 		try {
@@ -104,7 +142,12 @@ public class Dao {
 			return null;
 		}
 	}
-	//update
+
+	/**
+	 * This method updates single candidates data to the database and returns updated candidate list
+	 * @param c is an object that contains all candidate values
+	 * @return @see readAllCandidates
+	 */
 	public ArrayList<Candidate> updateCandidate(Candidate c) {
 		try {
 			String sql="UPDATE ehdokkaat SET sukunimi=?, etunimi=?, puolue=?, kotipaikkakunta=?, ika=?, miksi_eduskuntaan=?, mita_asioita_haluat_edistaa=?, ammatti=? WHERE ehdokas_id=?";
@@ -126,7 +169,11 @@ public class Dao {
 		}
 	}
 	
-	//adds a candidate to the database and if operation is a success it returns a list of all candidates 
+	/**
+	 * This method adds a candidate to the database and returns updated candidate list
+	 * @param c is an object that contains all candidate values
+	 * @return @see readAllCandidates
+	 */
 	public ArrayList<Candidate> addCandidate(Candidate c) {
 		try {
 			String sql="INSERT INTO ehdokkaat (ehdokas_id, sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -148,6 +195,11 @@ public class Dao {
 		}
 	}	
 	
+	/**
+	 * This method deletes candidate from the database based on which id is given to it and returns updated candidate list
+	 * @param id defines which candidate has been chosen to be deleted
+	 * @return @see readAllCandidates
+	 */
 	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
 			String sql="DELETE FROM ehdokkaat WHERE ehdokas_id=?";
