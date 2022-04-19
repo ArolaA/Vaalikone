@@ -149,7 +149,7 @@ public class Dao {
 	/**
 	 * This method updates single candidates data to the database and returns updated candidate list
 	 * @param c is an object that contains all candidate values
-	 * @return @see readAllCandidates
+	 * @return readAllCandidates
 	 */
 	public ArrayList<Candidate> updateCandidate(Candidate c) {
 		try {
@@ -175,7 +175,7 @@ public class Dao {
 	/**
 	 * This method adds a candidate to the database and returns updated candidate list
 	 * @param c is an object that contains all candidate values
-	 * @return @see readAllCandidates
+	 * @return readAllCandidates
 	 */
 	public ArrayList<Candidate> addCandidate(Candidate c) {
 		try {
@@ -201,7 +201,7 @@ public class Dao {
 	/**
 	 * This method deletes candidate from the database based on which id is given to it and returns updated candidate list
 	 * @param id defines which candidate has been chosen to be deleted
-	 * @return @see readAllCandidates
+	 * @return readAllCandidates
 	 */
 	public ArrayList<Candidate> deleteCandidate(String id) {
 		try {
@@ -489,7 +489,7 @@ public class Dao {
 
 	/**
 	 * This method was created for testing purposes. It retrieves candidate answers from database and stores them into a HashMap. Finally the HashMap is returned.
-	 * @return
+	 * @return returns map
 	 */
 	public HashMap<ArrayList<Object>, Integer> readAnswersCandidate() {
 
