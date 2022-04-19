@@ -24,18 +24,7 @@ import data.Question;
 
 import java.sql.Connection;
 
-/**
- * @author oskar
- *
- */
-/**
- * @author oskar
- *
- */
-/**
- * @author oskar
- *
- */
+
 public class Dao {
 	private String url;
 	private String user;
@@ -356,7 +345,7 @@ public class Dao {
 		/**
 		 * This method updates question data and returns an updated list of questions.
 		 * @param q Question-object which holds the updated version of the question
-		 * @return returning am updated list of questions.
+		 * @return returning an updated list of questions.
 		 */
 		public ArrayList<Question> updateQuestion(Question q) {
 			
@@ -445,7 +434,7 @@ public class Dao {
 
 
 	/**
-	 * This method was created for testing purposes. It retrieves candidate answers from database ans stores them into a HashMap. Finally the HashMap is returned.
+	 * This method was created for testing purposes. It retrieves candidate answers from database and stores them into a HashMap. Finally the HashMap is returned.
 	 * @return
 	 */
 	public HashMap<ArrayList<Object>, Integer> readAnswersCandidate() {
