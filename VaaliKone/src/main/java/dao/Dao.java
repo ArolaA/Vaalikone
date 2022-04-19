@@ -165,6 +165,11 @@ public class Dao {
 	
 	}
 	
+	/** 
+	 * This method reads one candidate from the database according to the id and returns a candidate object
+	 * @param id string value of candidate id
+	 * @return returning the candidate object
+	 */
 	public Candidate readOneCandidate(String id) {
 		Candidate c=null;
 
@@ -192,9 +197,13 @@ public class Dao {
 		catch(SQLException e) {
 			return null;
 		}
-	}
+	}	
 	
-	//adds a candidates answer to the database and return a boolean value according if the adding was a success or not
+	/**
+	 * This method adds a candidates answer to the database and returns a boolean value according if the adding was a success or not
+	 * @param a CandidateAnswer -object
+	 * @return returning a boolean value whether the operation was successful or not
+	 */
 	public Boolean addCandidateAnswer(CandidateAnswer a) {
 		try {
 			String sql="INSERT INTO vastaukset (ehdokas_id, kysymys_id, vastaus, kommentti) VALUES (?, ?, ?, ?)";
@@ -212,7 +221,10 @@ public class Dao {
 //		
 	}	
 	
-	//update candidates answers to the database
+		/**
+		 * This method updates the given candidate answer to the database
+		 * @param a CandidateAnswer -object
+		 */
 		public void updateCandidateAnswer(CandidateAnswer a) {
 			try {
 				String sql="UPDATE vastaukset SET vastaus=?, kommentti=? WHERE ehdokas_id=? AND kysymys_id=?";
@@ -226,9 +238,12 @@ public class Dao {
 			catch(SQLException e) {
 			
 			}
-		}
+		}	
 	
-	//read all questions for the candidate from the database and return them in an arraylist
+		/**
+		 * This method reads all questions from the database and returns them in an ArrayList
+		 * @return returning an ArrayList of all the questions
+		 */
 		public ArrayList<CandidateQuestion> readAllCandidateQuestions() {
 			ArrayList<CandidateQuestion> list=new ArrayList<>();
 			try {
@@ -245,10 +260,13 @@ public class Dao {
 			catch(SQLException e) {
 				return null;
 			}
-		}
+		}		
 		
-		//read one candidates answers from the database based on the candidate-id and 
-		//return them as an CandidateAnswer -object
+		/**
+		 * This method reads one candidates answers from the database based on the candidate-id and returns them as an CandidateAnswer -object
+		 * @param id String value of candidates id
+		 * @return returning an ArrayList of answers by a desired candidate
+		 */
 		public ArrayList<CandidateAnswer> readOneCandidatesAnswer(String id) {
 			
 			ArrayList<CandidateAnswer> list=new ArrayList<>();
@@ -272,12 +290,13 @@ public class Dao {
 			catch(SQLException e) {
 				return null;
 			}
-		}
-		
-
-	//kysymyksiin liittyvät tähän
+		}	
 	
-	//READ Kysymykset
+	
+	/**
+	 * This method read all questions from the database and returns an ArrayList of Question-objects 
+	 * @return returning an ArrayList of Question -objects 
+	 */
 	public ArrayList<Question> readAllQuestions() {
 		ArrayList<Question> list = new ArrayList<>();
 		try {
@@ -295,9 +314,12 @@ public class Dao {
 			return null;
 		}
 	}
-	
-
-	// read a single question from the database based on the given id
+	 
+	/**
+	 * This method reads a single question from the database based on the given id and returns a Question -object
+	 * @param id String value of the question id
+	 * @return returning a Question -object based on the given id
+	 */
 	public Question readOneQuestion(String id) {
 		Question q=null;
 		try {

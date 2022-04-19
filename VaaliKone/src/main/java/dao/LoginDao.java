@@ -5,11 +5,33 @@ import java.security.NoSuchAlgorithmException;
 
 import data.LoginInfo;
 
+/**
+ * Date: 19.04.2022
+ * This class contains password and username checking and crypting
+ * @author Ari-Jussi Ahonen
+ * @author Arsi Arola
+ * @author Oskari Ahoniemi
+ * @version 1.0
+ * 
+ *
+ */
 public class LoginDao {
 	
+	/**
+	 * String value for real user name
+	 */
 	private static String realuser = "admin";
+	/**
+	 * String value for real password
+	 */
 	private static String realpassword = "admin21m";   
     
+	/**
+	 * This method checks if the given user name and password are equal to the real user name and password. It returns a boolean value
+	 * whether the operation was successful or not 
+	 * @param logininfo LoginInfo -object
+	 * @return returning a boolean value whether the comparison was equal or not
+	 */
 	public static Boolean check(LoginInfo logininfo)
 	{
 		String user = logininfo.getUsername();
@@ -25,6 +47,11 @@ public class LoginDao {
 	    }
 	}
 	
+	/**
+	 * This method crypts a given string using the MD5-crypting and returns the crypted hash of the string
+	 * @param str a String value for given string
+	 * @return returning the given string as a hash
+	 */
 	public static String crypt(String str) {
         if (str == null || str.length() == 0) {
             throw new IllegalArgumentException("String to encript cannot be null or zero length");
