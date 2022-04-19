@@ -38,7 +38,7 @@
 									<input type="radio" id="q${question.id}-5" name="q${question.id}answer" value="5">
 								</div>
 								<div class="scale">
-									<p>1=täysin samaa mieltä,2=jokseenkin eri mieltä,3=ei samaa eikä eri mieltä,4=jokseenkin samaa mieltä,5=täysin eri mieltä</p>
+									<p>1=täysin samaa mieltä,2=jokseenkin samaa mieltä,3=ei samaa eikä eri mieltä,4=jokseenkin eri mieltä,5=täysin eri mieltä</p>
 								</div>
 							</div>
 						</div>
