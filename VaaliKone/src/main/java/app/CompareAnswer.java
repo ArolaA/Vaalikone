@@ -192,6 +192,11 @@ public class CompareAnswer extends HttpServlet {
 
 	} // DoPost ends
 	
+	/**
+	 * This method sorts a list by the Values ins ascending order.
+	 * @param result received list for sorting
+	 * @return returning sorted list.
+	 */
 	public static HashMap<Integer, Integer> sortByValue(HashMap<Integer, Integer> result){
 		
 		
