@@ -24,6 +24,18 @@ import data.Question;
 
 import java.sql.Connection;
 
+/**
+ * @author oskar
+ *
+ */
+/**
+ * @author oskar
+ *
+ */
+/**
+ * @author oskar
+ *
+ */
 public class Dao {
 	private String url;
 	private String user;
@@ -340,8 +352,14 @@ public class Dao {
 		}
 	}
 	
-	//update Question data to the database and return a updated list of questions
+
+		/**
+		 * This method updates question data and returns an updated list of questions.
+		 * @param q Question-object which holds the updated version of the question
+		 * @return returning am updated list of questions.
+		 */
 		public ArrayList<Question> updateQuestion(Question q) {
+			
 			try {
 				String sql="UPDATE kysymykset SET kysymys=? WHERE kysymys_id=?";
 				PreparedStatement pstmt=conn.prepareStatement(sql);
@@ -357,8 +375,14 @@ public class Dao {
 	
 	
 	
-	//adds a question to the database and if operation is a success it returns a list of all questions 
+ 
+	/**
+	 * This method adds a question to the database and if it is successfully completed, it returns a list of all questions
+	 * @param q Question-object which holds the new question to be added
+	 * @return returning a list of all questions
+	 */
 	public ArrayList<Question> addQuestion(Question q) {
+		
 		try {
 			String sql="INSERT INTO kysymykset (kysymys_id, kysymys) VALUES (?,?)";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
@@ -372,7 +396,13 @@ public class Dao {
 		}
 	}
 	
-	//deletes a question from the database according to the given string
+
+	
+	/**
+	 * This method deletes a question from the database according to the given string
+	 * @param id id-value (String) of the question to be deleted.
+	 * @return returning an updated list of all questions
+	 */
 	public ArrayList<Question> deleteQuestion(String id) {
 		try {
 			String sql="DELETE FROM kysymykset WHERE kysymys_id=?";
@@ -390,7 +420,13 @@ public class Dao {
 	
 	}
 	
+	/**
+	 * This method receives all answers given by the user and puts them into a list. Then the list is returned.
+	 * @param u UserAnswer-object u which holds the answers from the users.
+	 * @return returning a AraayList-of answers.
+	 */
 	public ArrayList<UserAnswer> userAnswerToList(UserAnswer u) {
+		
 		ArrayList<UserAnswer> answerlist = new ArrayList<>();
 		try {
 			int index = 0;
@@ -408,6 +444,10 @@ public class Dao {
 	}
 
 
+	/**
+	 * This method was created for testing purposes. It retrieves candidate answers from database ans stores them into a HashMap. Finally the HashMap is returned.
+	 * @return
+	 */
 	public HashMap<ArrayList<Object>, Integer> readAnswersCandidate() {
 
 	try {
@@ -442,6 +482,10 @@ public class Dao {
 		return null;
 	}
 }
+	/**
+	 * This method retrieves all answers of candidates from the database. Then it stores the answers into a Guava-table and returns it. 
+	 * @return returning a Guava-table with candidate_id, question_id and answer_id.
+	 */
 	public com.google.common.collect.Table<Integer, Integer, Integer> readAnswersCandidate2() {
 
 	try {
