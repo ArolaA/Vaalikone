@@ -303,11 +303,11 @@ public class Dao {
 			ArrayList<CandidateQuestion> list=new ArrayList<>();
 			try {
 				Statement stmt=conn.createStatement();
-				ResultSet RS=stmt.executeQuery("select * from kysymykset");
+				ResultSet RS=stmt.executeQuery("select * from question");
 				while (RS.next()){
 					CandidateQuestion q=new CandidateQuestion();
-					q.setId(RS.getInt("kysymys_id"));
-					q.setQuestion(RS.getString("kysymys"));					
+					q.setId(RS.getInt("id"));
+					q.setQuestion(RS.getString("question"));					
 					list.add(q);
 				}				
 				return list;
@@ -356,11 +356,11 @@ public class Dao {
 		ArrayList<Question> list = new ArrayList<>();
 		try {
 			Statement stmt=conn.createStatement();
-			ResultSet RS=stmt.executeQuery("select * from kysymykset");
+			ResultSet RS=stmt.executeQuery("select * from question");
 			while (RS.next()){
 				Question q = new Question();
-				q.setId(RS.getInt("kysymys_id"));
-				q.setQuestion(RS.getString("kysymys"));
+				q.setId(RS.getInt("id"));
+				q.setQuestion(RS.getString("question"));
 				list.add(q);
 			}
 			return list;
