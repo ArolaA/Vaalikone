@@ -35,9 +35,7 @@ else
 				<h2>UUSI KYSYMYS</h2>	
 			</div>
 		</div>					
-		<form action='/AddQuestion' id="lisayslomake" method="POST">
-			<label for="id">Kysymyksen numero:</label><br>
-			<input class="addquestionid" type="number" id="id" name="id" required><br>
+		<form action='/AddQuestionRest' id="lisayslomake" method="POST">			
 			<label for="question">Kysymys:</label><br>
 			<textarea class="addquestiontext" id="question" name="question" form="lisayslomake" required></textarea><br>	  				
 			<input type="submit" class="button"  value="Tallenna">
