@@ -18,6 +18,11 @@ public class Question {
 		this.question = question;
 
 	}
+	
+	public Question(String question) {
+		this.question = question;
+	}
+	
 	public Question() {
 		// TODO Auto-generated constructor stub
 	}
