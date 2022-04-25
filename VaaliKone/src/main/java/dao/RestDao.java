@@ -59,7 +59,7 @@ public class RestDao {
 	}	
 	
 	@PUT
-	@Path("/updatecandidate")
+	@Path("/updatequestion")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public List<Question> updateQuestion(Question question) {
