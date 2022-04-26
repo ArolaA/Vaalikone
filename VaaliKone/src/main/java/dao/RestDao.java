@@ -85,7 +85,8 @@ public class RestDao {
 	@Path("/deleteQuestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
-	public void deleteQuestion(@PathParam("id") int id,
+	
+	public List<Question> deleteQuestion(@PathParam("id") int id,
 			@Context HttpServletRequest request,
 			@Context HttpServletResponse response
 			) {
@@ -100,18 +101,9 @@ public class RestDao {
 		em.getTransaction().commit();
 		
 		List<Question> list=readQuestion();
-		
-		request.setAttribute("questionlist", list);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/listallquestions.jsp");
-		
-	
-		try {
-			rd.forward(request, response);
-			
-		} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+		return list;
+
+				
 	}
 	
 
