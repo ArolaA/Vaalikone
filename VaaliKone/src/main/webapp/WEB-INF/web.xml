@@ -32,7 +32,7 @@
 		-->
 		<init-param>
 		  <param-name>jersey.config.server.provider.packages</param-name>
-		  <param-value>services</param-value>
+		  <param-value>dao</param-value>
 		</init-param>
 		<!--
 			This tells the server to load REST service when the server starts
