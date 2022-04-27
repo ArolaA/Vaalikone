@@ -35,7 +35,7 @@ else
 				<h2>kysymyksen muokkaus</h2>
 			</div>
 		</div>		
-		<form action='/UpdateQuestion' id="lisayslomake" method="POST">
+		<form action='/UpdateQuestionRest' id="lisayslomake" method="POST">
 				<label for="id">Kysymyksen numero:</label><br>
 				<input class="editquestionid" type="number" id="id" name="id" readonly value="${requestScope.question.id}"><br>
 				<label for="question">Kysymys:</label><br>
