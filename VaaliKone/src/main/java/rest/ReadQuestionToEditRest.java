@@ -1,6 +1,7 @@
 package rest;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,10 +31,10 @@ public class ReadQuestionToEditRest extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		Question q = null;
-		q=readQuestion(request);
+		List<Question> list = null;
+		Question q=readQuestion(request);
 		request.setAttribute("question", q);
-		RequestDispatcher rd=request.getRequestDispatcher("./jsp/showquestionstoedit.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("./jsp/showquestiontoedit.jsp");
 		rd.forward(request, response);
 	}
 	
