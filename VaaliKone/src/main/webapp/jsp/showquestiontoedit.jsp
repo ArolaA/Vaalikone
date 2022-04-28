@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  
  <%@ page import="java.util.ArrayList" %>   
- <%@ page import="data.Candidate" %>   
+
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
@@ -35,7 +35,7 @@ else
 				<h2>kysymyksen muokkaus</h2>
 			</div>
 		</div>		
-		<form action='/UpdateQuestion' id="lisayslomake" method="POST">
+		<form action='/UpdateQuestionRest' id="lisayslomake" method="POST">
 				<label for="id">Kysymyksen numero:</label><br>
 				<input class="editquestionid" type="number" id="id" name="id" readonly value="${requestScope.question.id}"><br>
 				<label for="question">Kysymys:</label><br>
