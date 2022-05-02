@@ -61,5 +61,30 @@ else
 		</div>		
 	</div>	
 </div>
+
+	<button onclick="topFunction()" id="scrollBtn" title="Go to top"><b>&#11165;</b></button>
+	<script>
+		// javascript for scroll to top button
+		mybutton = document.getElementById("scrollBtn");	
+		
+		window.onscroll = function() {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 50
+					|| document.documentElement.scrollTop > 50) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		}
+	</script>	
 </body>
 </html>

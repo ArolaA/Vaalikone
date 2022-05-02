@@ -57,9 +57,13 @@ public class ShowCandidateQuestions extends HttpServlet {
 		}
 		
 		//set both lists as attributes and forward to addcandidateanswerjsp
-		request.setAttribute("questionlist", list);
-		request.setAttribute("candidatelist", list2);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/addcandidateanswer.jsp");
+//		request.setAttribute("questionlist", list);
+//		request.setAttribute("candidatelist", list2);
+		
+		getServletContext().setAttribute("questionlist", list);
+		getServletContext().setAttribute("candidatelist", list2);
+		
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/addcandidateanswer2.jsp");
 		rd.forward(request, response);
 	}
 

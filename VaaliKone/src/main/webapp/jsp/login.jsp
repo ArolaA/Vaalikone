@@ -17,12 +17,12 @@
 <div class="background">
 	<div class="frame" style="width: 25%;">
 		<div class="loginform">
-			<form action="/checklogin" method="post">							  
+			<form action="/checkloginrest" method="post">							  
 			        <h3>Anna käyttäjänimi ja salasana</h3>			        			  
 			        <table>			        	
 			            <tr>
 			             	<td class="loginlogo"><img src="/img/user_logo.png" alt="username logo">	                
-			                	<input type="text" name="user" required placeholder="käyttäjänimi"></td>
+			                	<input type="text" name="user" value="${requestScope.user}" required placeholder="käyttäjänimi"></td>
 			            </tr>			            	                     
 			            <tr>
 			            	<td class="passwordlogo"><img src="/img/password_logo.png" alt="password logo">
