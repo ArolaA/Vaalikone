@@ -35,8 +35,13 @@ else
 				<h2>kysymykset</h2>
 			</div>
 		</div>		
-		<a href='jsp/admin.jsp' class="btn-grad" style="width:85px; margin-bottom: 20px;">Takaisin</a>	
-			
+		<a href='jsp/admin.jsp' class="btn-grad" style="width:85px; margin-bottom: 20px;">Takaisin</a>
+		<p class="candidateidheading">ehdokas:</p>
+			  <select id="candidateid" name="candidateid">
+			  	<c:forEach var="candidate" items="${requestScope.candidatelist}">						
+						<option value="${candidate.id}">${candidate.id}. ${candidate.surname} ${candidate.firstname}</option>						
+				</c:forEach>			    			    
+			  </select><br><br>			
 		<form action='/AddCandidateAnswer' id="c_answerform" method="POST">		
 			<c:forEach var="question" items="${requestScope.questionlist}">
 				<div class="question">
@@ -64,13 +69,7 @@ else
 						</div>
 				</div>					
 			</c:forEach>
-			<br><br>
-			<p class="candidateidheading">Ehdokas</p>
-			  <select id="candidateid" name="candidateid">
-			  	<c:forEach var="candidate" items="${requestScope.candidatelist}">						
-						<option value="${candidate.id}">${candidate.id}. ${candidate.surname} ${candidate.firstname}</option>						
-				</c:forEach>			    			    
-			  </select><br><br>					
+			<br><br>				
 			<input type="submit" class="button"  value="Tallenna vastauksesi">
 		</form><br>	
 		<div class="addquestion_navigation">

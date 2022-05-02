@@ -21,6 +21,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import data.Question;
+import data.Users;
 
 @Path("/restdao")
 public class RestDao {
@@ -94,17 +95,37 @@ public class RestDao {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		Question q=em.find(Question.class, id);
-		System.out.println(q);
 			if (q!=null) {
 				em.remove(q);
 			}
 		em.getTransaction().commit();
 		
 		List<Question> list=readQuestion();
-		return list;
-
-				
+		return list;				
 	}
+	
+	@GET
+	@Path("/readusers")
+	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+	public List<Users> readUsers() {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		List<Users> list=em.createQuery("select x from Users x").getResultList();		
+		em.getTransaction().commit();
+		return list;
+	}
+	
+	@POST
+	@Path("/adduser")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void addFish(Users user) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(user);//The actual insertion line
+		em.getTransaction().commit();		
+	}	
 	
 
 }

@@ -91,7 +91,6 @@
 .loginbutton
 {	
 	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	border: none;
 	color: ivory;
 	padding: 7px;
 	border: 1px solid ivory;
@@ -101,9 +100,32 @@
 	display: inline-block;
 	font-size: 14px;
 	font-weight:bolder;
-	margin: 4px 4px;
+	margin: 4px 10px 0px 0px !important;
 	cursor: pointer;
 	text-transform: uppercase;	
+}
+
+.nextbutton
+{	
+	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+	color: ivory;
+	padding: 2px;
+	width: 60px;
+	border: 1px solid black;
+	border-radius: 5px;	
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	font-weight:bolder;
+	cursor: pointer;
+	text-transform: uppercase;
+	margin-top: 5px;	
+}
+
+.nextbutton:first-of-type
+{
+	margin-right: 8px;
 }
 
 .btn-grad 
@@ -135,12 +157,12 @@
   text-decoration: none;
 }     
 
- .button:hover, .button2:hover, .button3:hover, .button4:hover, input[type=submit]:hover, .loginbutton:hover
+ .button:hover, .button2:hover, .button3:hover, .button4:hover, input[type=submit]:hover, .loginbutton:hover, .nextbutton:hover
  {		
 	color: darkgrey;	
  }
  
- .button:active, .button2:active, .button3:active, .button4:active, input[type=submit]:active, .loginbutton:active
+ .button:active, .button2:active, .button3:active, .button4:active, input[type=submit]:active, .loginbutton:active, .nextbutton:active
 {  	
   	box-shadow: 0 5px #666;
   	transform: translateY(4px);
@@ -568,8 +590,34 @@ p.questionheader
 
 .comment
 {
-	width: 250px;
+	width: 300px;
 	height: 35px;
+	resize: none;
+}
+
+.nextbuttons
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.clearbutton
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.showsend
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
 }
 
 p.candidateidheading
@@ -613,6 +661,7 @@ h3.noanswers
 select#candidateid
 {
 	font-size: 20px;
+	margin-bottom: 20px;
 }
 
 .candidatedetails
@@ -686,6 +735,15 @@ p.candidatedetailsheading
 {  
   opacity: 0.7;
 }
+
+p.welcome
+{ 	
+	text-align: center;
+	color: ivory;		
+	font-weight: bold;
+	
+}
+ 
 
 
 
