@@ -20,7 +20,7 @@
 				</div>
 			</div>	
 				<a href='../index.html' class="btn-grad" style="width: 85px;">Takaisin</a>
-				<form action=/CompareAnswer method="post" name="valinta">
+				<form action=/CompareAnswerRest method="post" name="valinta">
 					<c:forEach var="question" items="${requestScope.questionlist}">
 	
 						<div class="question">	
