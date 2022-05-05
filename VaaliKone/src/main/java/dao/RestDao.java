@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -82,15 +83,12 @@ public class RestDao {
 		return list;
 	}	
 	
-	@GET
+	@DELETE
 	@Path("/deleteQuestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
 	
-	public List<Question> deleteQuestion(@PathParam("id") int id,
-			@Context HttpServletRequest request,
-			@Context HttpServletResponse response
-			) {
+	public List<Question> deleteQuestion(@PathParam("id") int id) {
 			
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
