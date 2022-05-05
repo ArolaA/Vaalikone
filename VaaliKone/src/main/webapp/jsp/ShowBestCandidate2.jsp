@@ -37,31 +37,30 @@
 					<c:out value="Sopivuus:"/><b class="countPercentage"><span>0</span>%
 						<script type="text/javascript">
 							animatedResult(${scoreValues[0]});
-							
-							function animatedResult (a){
-							    var display = $('.countPercentage > span');
-							    
-							    var score = a;
-								var maxDifference = ${maxDif};
-								var result = (1-(score/maxDifference))*100;
-								var rounded = Math.round(result);
-								
-						   		var currentValue = parseInt(display.text());
-						    	var nextValue    = rounded;
-
-						    	var diff         = nextValue - currentValue;
-						    	var step         = ( 0 < diff ? 1 : -1 ); 
-
-						    for (var i = 0; i < Math.abs(diff); ++i) {
-						        setTimeout(function() {
-						            currentValue += step
-						            display.text(currentValue);
-						        }, 100 * i)   
-						    }
-							}
-								
-							
-						</script></b><br><br>  
+							 
+								function animatedResult (a){
+								    var display = $('.countPercentage > span');
+								    
+								    var score = a;
+									var maxDifference = ${maxDif};
+									var result = (1-(score/maxDifference))*100;
+									var rounded = Math.round(result);
+									
+							   		var currentValue = parseInt(display.text());
+							    	var nextValue    = rounded;
+	
+							    	var diff         = nextValue - currentValue;
+							    	var step         = ( 0 < diff ? 1 : -1 ); 
+	
+								    for (var i = 0; i < Math.abs(diff); ++i) {
+								        setTimeout(function() {
+								            currentValue += step
+								            display.text(currentValue);
+								        }, 100 * i)   
+							    	}
+								}
+						</script></b><br><br>
+						
 				</div>		
 				<p id="test"></p>
 			</div>	
