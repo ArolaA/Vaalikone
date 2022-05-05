@@ -217,7 +217,7 @@
   
 			<div class="navigation">
 			<ul>
-				<li><a href='/ShowCandidates' class="btn-grad" style="width:125px;">Vastaa uudestaan</a></li>
+				<li><a href='/ShowQuestions' class="btn-grad" style="width:125px;">Vastaa uudestaan</a></li>
 				<li><a href='/ShowCandidateDetails' class="btn-grad" style="width:125px;">Tarkastele ehdokkaita</a></li>
 				<li><a href='index.html' class="btn-grad" style="width:125px;">Palaa etusivulle</a></li>
 			</ul>
