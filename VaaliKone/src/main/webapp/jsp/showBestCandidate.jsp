@@ -10,7 +10,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="mycss.css">
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Sopivimmat Ehdokkaat</title>
 </head>
 
 <body>
