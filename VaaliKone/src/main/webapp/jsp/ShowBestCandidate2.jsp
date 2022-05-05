@@ -7,8 +7,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
+
 <html>
+
 <head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
 <link rel="stylesheet" type="text/css" href="mycss.css">
 <meta charset="ISO-8859-1">
 <title>Sopivimmat Ehdokkaat</title>
@@ -31,18 +34,34 @@
 					<c:out value="Nimi: ${cand1.surname}"/> 
 					<c:out value=" ${cand1.firstname}"/><br>
 					<c:out value="Puolue: ${cand1.party}"/><br><br>
-					<c:out value="Sopivuus:"/>
+					<c:out value="Sopivuus:"/><b class="countPercentage"><span>0</span>%
 						<script type="text/javascript">
-						countPercent()
-						
-						function countPercent(){
-							var score = ${scoreValues[0]};
-							var maxDifference = ${maxDif};
-							var result = (1-(score/maxDifference))*100;
-							var rounded = Math.round(result * 10)/10;
-							return document.write(rounded+"%");
-						}	
-							    </script><br><br>  
+							animatedResult(${scoreValues[0]});
+							
+							function animatedResult (a){
+							    var display = $('.countPercentage > span');
+							    
+							    var score = a;
+								var maxDifference = ${maxDif};
+								var result = (1-(score/maxDifference))*100;
+								var rounded = Math.round(result);
+								
+						   		var currentValue = parseInt(display.text());
+						    	var nextValue    = rounded;
+
+						    	var diff         = nextValue - currentValue;
+						    	var step         = ( 0 < diff ? 1 : -1 ); 
+
+						    for (var i = 0; i < Math.abs(diff); ++i) {
+						        setTimeout(function() {
+						            currentValue += step
+						            display.text(currentValue);
+						        }, 100 * i)   
+						    }
+							}
+								
+							
+						</script></b><br><br>  
 				</div>		
 				<p id="test"></p>
 			</div>	
@@ -53,18 +72,34 @@
 					<c:out value="Nimi: ${cand2.surname}"/> 
 					<c:out value=" ${cand2.firstname}"/><br>
 					<c:out value="Puolue: ${cand2.party}"/><br><br> 
-					<c:out value="Sopivuus:"/>
+					<c:out value="Sopivuus:"/><b class="countPercentage"><span>0</span>%
 						<script type="text/javascript">
-						countPercent()
-						
-						function countPercent(){
-							var score = ${scoreValues[1]};
-							var maxDifference = ${maxDif};
-							var result = (1-(score/maxDifference))*100;
-							var rounded = Math.round(result * 10)/10;
-							return document.write(rounded+"%");
-						}	
-							    </script><br><br>
+							animatedResult(${scoreValues[1]});
+							
+							function animatedResult (a){
+							    var display = $('.countPercentage > span');
+							    
+							    var score = a;
+								var maxDifference = ${maxDif};
+								var result = (1-(score/maxDifference))*100;
+								var rounded = Math.round(result);
+								
+						   		var currentValue = parseInt(display.text());
+						    	var nextValue    = rounded;
+
+						    	var diff         = nextValue - currentValue;
+						    	var step         = ( 0 < diff ? 1 : -1 ); 
+
+						    for (var i = 0; i < Math.abs(diff); ++i) {
+						        setTimeout(function() {
+						            currentValue += step
+						            display.text(currentValue);
+						        }, 100 * i)   
+						    }
+							}
+								
+							
+						</script></b><br><br>
 				</div>		
 			</div>	
 			<div class="navigation">
@@ -74,18 +109,34 @@
 					<c:out value="Nimi: ${cand3.surname}"/> 
 					<c:out value=" ${cand3.firstname}"/><br>
 					<c:out value="Puolue: ${cand3.party}"/><br><br> 
-					<c:out value="Sopivuus:"/>
+				<c:out value="Sopivuus:"/><b class="countPercentage"><span>0</span>%
 						<script type="text/javascript">
-						countPercent()
-						
-						function countPercent(){
-							var score = ${scoreValues[2]};
-							var maxDifference = ${maxDif};
-							var result = (1-(score/maxDifference))*100;
-							var rounded = Math.round(result * 10)/10;
-							return document.write(rounded+"%");
-						}	
-							    </script><br><br>
+							animatedResult(${scoreValues[2]});
+							
+							function animatedResult (a){
+							    var display = $('.countPercentage > span');
+							    
+							    var score = a;
+								var maxDifference = ${maxDif};
+								var result = (1-(score/maxDifference))*100;
+								var rounded = Math.round(result);
+								
+						   		var currentValue = parseInt(display.text());
+						    	var nextValue    = rounded;
+
+						    	var diff         = nextValue - currentValue;
+						    	var step         = ( 0 < diff ? 1 : -1 ); 
+
+						    for (var i = 0; i < Math.abs(diff); ++i) {
+						        setTimeout(function() {
+						            currentValue += step
+						            display.text(currentValue);
+						        }, 100 * i)   
+						    }
+							}
+								
+							
+						</script></b><br><br>
 				</div>		
 			</div>	
 			<div class="navigation">
@@ -95,18 +146,34 @@
 					<c:out value="Nimi: ${cand4.surname}"/> 
 					<c:out value=" ${cand4.firstname}"/><br>
 					<c:out value="Puolue: ${cand4.party}"/><br><br> 
-					<c:out value="Sopivuus:"/>
+				<c:out value="Sopivuus:"/><b class="countPercentage"><span>0</span>%
 						<script type="text/javascript">
-						countPercent()
-						
-						function countPercent(){
-							var score = ${scoreValues[3]};
-							var maxDifference = ${maxDif};
-							var result = (1-(score/maxDifference))*100;
-							var rounded = Math.round(result * 10)/10;
-							return document.write(rounded+"%");
-						}	
-							    </script><br><br>
+							animatedResult(${scoreValues[3]});
+							
+							function animatedResult (a){
+							    var display = $('.countPercentage > span');
+							    
+							    var score = a;
+								var maxDifference = ${maxDif};
+								var result = (1-(score/maxDifference))*100;
+								var rounded = Math.round(result);
+								
+						   		var currentValue = parseInt(display.text());
+						    	var nextValue    = rounded;
+
+						    	var diff         = nextValue - currentValue;
+						    	var step         = ( 0 < diff ? 1 : -1 ); 
+
+						    for (var i = 0; i < Math.abs(diff); ++i) {
+						        setTimeout(function() {
+						            currentValue += step
+						            display.text(currentValue);
+						        }, 100 * i)   
+						    }
+							}
+								
+							
+						</script></b><br><br>
 				</div>		
 			</div>	
 			<div class="navigation">
@@ -116,18 +183,34 @@
 					<c:out value="Nimi: ${cand5.surname}"/> 
 					<c:out value=" ${cand5.firstname}"/><br>
 					<c:out value="Puolue: ${cand5.party}"/><br><br> 
-					<c:out value="Sopivuus:"/>
+					<c:out value="Sopivuus:"/><b class="countPercentage"><span>0</span>%
 						<script type="text/javascript">
-						countPercent()
-						
-						function countPercent(){
-							var score = ${scoreValues[4]};
-							var maxDifference = ${maxDif};
-							var result = (1-(score/maxDifference))*100;
-							var rounded = Math.round(result * 10)/10;
-							return document.write(rounded+"%");
-						}	
-							    </script><br><br>
+							animatedResult(${scoreValues[4]});
+							
+							function animatedResult (a){
+							    var display = $('.countPercentage > span');
+							    
+							    var score = a;
+								var maxDifference = ${maxDif};
+								var result = (1-(score/maxDifference))*100;
+								var rounded = Math.round(result);
+								
+						   		var currentValue = parseInt(display.text());
+						    	var nextValue    = rounded;
+
+						    	var diff         = nextValue - currentValue;
+						    	var step         = ( 0 < diff ? 1 : -1 ); 
+
+						    for (var i = 0; i < Math.abs(diff); ++i) {
+						        setTimeout(function() {
+						            currentValue += step
+						            display.text(currentValue);
+						        }, 100 * i)   
+						    }
+							}
+								
+							
+						</script></b><br><br>
 				</div>		
 			</div>	
   
@@ -142,6 +225,16 @@
 	</div>
 </div>
 
+	<script>
+
+						function countPercent(){
+							var score = ${scoreValues[0]};
+							var maxDifference = ${maxDif};
+							var result = (1-(score/maxDifference))*100;
+							var rounded = Math.round(result);
+							return document.write(rounded+"%");
+						}	
+	 </script>
 </body>
 </html>
 
