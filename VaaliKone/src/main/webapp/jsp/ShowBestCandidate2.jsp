@@ -76,7 +76,7 @@
 			</div>	
 			<div class="navigation">
 				<div class="bestcandidatedetails">
-					<p>Vastauksiesi pohjalta nelj‰nneksi sopivin ehdokas:</p>
+					<p>Vastauksiesi pohjalta nelj√§nneksi sopivin ehdokas:</p>
 					<div class="bestcandidatedetailstext">					
 						<div class="bestcandidatetext">	
 							<c:out value="Ehdokas numero: ${cand4.id}"/><br>
@@ -93,6 +93,7 @@
 			<div class="navigation">
 				<div class="bestcandidatedetails">
 					<p>Vastauksiesi pohjalta viidenneksi sopivin ehdokas:</p>
+
 					<div class="bestcandidatedetailstext">
 						<div class="bestcandidatetext">	
 							<c:out value="Ehdokas numero: ${cand5.id}"/><br>
@@ -111,7 +112,7 @@
 					<li><a href='/ShowQuestions' class="btn-grad" style="width:125px;">Vastaa uudestaan</a></li>
 					<li><a href='/ShowCandidateDetails' class="btn-grad" style="width:125px;">Tarkastele ehdokkaita</a></li>
 					<li><a href='index.html' class="btn-grad" style="width:125px;">Palaa etusivulle</a></li>
-				</ul>
+				</ul>				
 			</div>
 	</div>
 </div>

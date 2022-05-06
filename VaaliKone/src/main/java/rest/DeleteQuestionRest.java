@@ -53,7 +53,7 @@ public class DeleteQuestionRest extends HttpServlet {
 			Builder b=wt.request();
 			
 			GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};		
-			List<Question> returnedList=b.get(genericList);
+			List<Question> returnedList=b.delete(genericList);
 			return returnedList;
 		}
 
