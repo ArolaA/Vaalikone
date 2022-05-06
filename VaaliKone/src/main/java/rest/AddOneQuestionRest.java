@@ -2,6 +2,7 @@ package rest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +19,9 @@ import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import dao.Dao;
+import data.Candidate;
+import data.CandidateAnswer;
 import data.Question;
 
 /**
@@ -26,7 +30,13 @@ import data.Question;
 @WebServlet(name = "AddQuestionRest", urlPatterns = { "/AddQuestionRest" })
 public class AddOneQuestionRest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private Dao dao;
+	
+	@Override
+	public void init() {
+		dao=new Dao("jdbc:mysql://localhost:3306/vaalikone", "admin", "admin21m");
+	}
    
     public AddOneQuestionRest() {
         super();
@@ -37,10 +47,18 @@ public class AddOneQuestionRest extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		response.setCharacterEncoding("UTF-8");	
-		PrintWriter out = response.getWriter();			
+		PrintWriter out = response.getWriter();
+		
+		
 		
 		List<Question> list=null;
 		list=addQuestion(request);
+		
+		//get the id of the last question in the list and send it as a parameter to addAnswers -method 
+		String questionid = ""+list.get(list.size()-1).getId();	
+		System.out.println("Kysymys-ID : " +questionid);
+		addAnswers(questionid);
+		
 		out.println("<script type=\"text/javascript\">");
 		out.println("if(window.confirm('Kysymys lisätty onnistuneesti tietokantaan. Lisätäänkö uusi kysymys?')){;");
 		out.println("location='./jsp/addquestion.jsp';}");
@@ -61,6 +79,29 @@ public class AddOneQuestionRest extends HttpServlet {
 		GenericType<List<Question>> genericList = new GenericType<List<Question>>() {};	
 		List<Question> returnedList=b.post(e, genericList);
 		return returnedList;
+	}
+	
+	//this method adds a default answer-value of "3" to the new added question to all the candidates
+	private void addAnswers(String questionid) {		
+		ArrayList<Candidate> candList=null;
+		String answer = "0";
+		String comment = "";
+		
+		if (dao.getConnection()) {				
+			//
+			candList=dao.readAllCandidates();
+		}	
+		
+		//loop through all candidates and add a "3" value as an answer to the new question 
+		for(int i=0 ; i < candList.size() ; i++) {
+			String candId = "" +candList.get(i).getId();
+			CandidateAnswer a = new CandidateAnswer(candId, questionid, answer, comment);
+			
+			if (dao.getConnection()) {				
+				//call the method addCadidateAnswer from the Dao-class
+				dao.addCandidateAnswer(a);
+			}
+		}
 	}
 
 }
