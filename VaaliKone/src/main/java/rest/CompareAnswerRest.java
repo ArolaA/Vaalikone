@@ -1,7 +1,6 @@
 package rest;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import java.util.Collections;
@@ -57,7 +56,6 @@ public class CompareAnswerRest extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setCharacterEncoding("UTF-8");
-//		PrintWriter out = response.getWriter();
 		
 		ArrayList<Question> qlist=null;
 		ArrayList<Candidate> candidates=null;
@@ -75,9 +73,8 @@ public class CompareAnswerRest extends HttpServlet {
 			
 			UserAnswer u = new UserAnswer(questionid, answer);
 			System.out.println("Kysymys id: " + u.getId());
-			System.out.println("Kysymys: " + u.getanswer());
-			
-//			alist.add(questionid);
+			System.out.println("Kysymys: " + u.getanswer());			
+
 			alist.add(answer);
 			
 			if (dao.getConnection()) {	
@@ -94,55 +91,69 @@ public class CompareAnswerRest extends HttpServlet {
 		HashMap<Integer, Integer> result = new HashMap<Integer, Integer>();
 
 		
-		// Loop to calculate the answer differences between the user and candidates
-	
+		// Loop to calculate the answer differences between the user and candidates		
+		//Count results from all candidates
 		
-			//Count results from all candidates
-			for(int z=1; z<=candidates.size();z++)
+		for(int z=1; z<=candidates.size();z++)
+		{
+
+			int score1=0;
+
+			int index=1;
+			int ansScore=0;
+			int cand_id=candidates.get(z-1).getId();
+			System.out.println("Ehdokkaan ID: " +cand_id);
+
+			// Count scoring from received use answers
+			for(int x=0; x < alist.size(); x++)
 			{
-	
-				int score1=0;
-	
-				int index=1;
-				int ansScore=0;
-				int cand_id=z;
-	
-				// Count scoring from received use answers
-				for(int x=0; x < alist.size(); x++)
-				{
-					index=x+1;
-					int userValue = 0;
-					int candValue = 0;
-					candValue = answerTable.get(z,x+1);
-	
-					
-							//Check for null-answers from user and convert them to match candidate answer
-							if (alist.get(x)== null)
-							{
-								
-							userValue = candValue;	
-							}
-							else {
-								userValue = Integer.parseInt(alist.get(x));
-							}
-					
-					ansScore= Math.abs(userValue - candValue);
-					score1=score1+ansScore;
-				}
-				scoreTable.put(index, cand_id, score1);
-				result.put(cand_id, score1);
+				index=x+1;
+				int userValue = 0;
+				int candValue = 0;
+				int questionId = qlist.get(x).getId();
 				
-			} // End of the counting loop
+				if(answerTable.get(cand_id,questionId) == null) {
+					candValue = 0;
+				}
+				else {
+					candValue = answerTable.get(cand_id,questionId);	
+				}				
+				
+				//Check for null-answers from user and convert them to match candidate answer
+				if (alist.get(x)== null)
+				{					
+					userValue = candValue;	
+				}
+				else {
+					userValue = Integer.parseInt(alist.get(x));
+				}
+				
+				//if the candidate has not answered the question, the Score is set the maximum difference value 
+				if(candValue == 0) {
+					ansScore = 4;
+				}
+				//else calculate the absolute difference between the answers
+				else {
+					ansScore= Math.abs(userValue - candValue);
+					System.out.println("Pisteet: " +ansScore);
+				}				
+				score1=score1+ansScore;
+				System.out.println("Kokonaispisteet: " +score1);
+			}
+			scoreTable.put(index, cand_id, score1);
+			result.put(cand_id, score1);
+			
+		} // End of the counting loop
 		
 	
 
 		// Arrange result in order of best score
-        Map<Integer, Integer> result1 = sortByValue(result);
-        ArrayList<Integer> scoreResult = new ArrayList<Integer>();
-        ArrayList<Integer> scoreResultPoints = new ArrayList<Integer>();
+	    Map<Integer, Integer> result1 = sortByValue(result);
+	    ArrayList<Integer> scoreResult = new ArrayList<Integer>();
+	    ArrayList<Integer> scoreResultPoints = new ArrayList<Integer>();
         
-		 for (Map.Entry<Integer, Integer> en : result1.entrySet()) {
-	            
+	    for (Map.Entry<Integer, Integer> en : result1.entrySet()) {
+            
 			 // add candidate scores to a list by their score
 	         scoreResult.add(en.getKey());
 	         // create a list of scores by standing
@@ -151,8 +162,8 @@ public class CompareAnswerRest extends HttpServlet {
 	         // Print to console to check that everything works properly
 			 System.out.println("Key = " + en.getKey() +
 	                          ", Value = " + en.getValue());
-	            
-	        }
+            
+        }
 		 
 		 // Create a variable for maximum difference value
 		 int maxDifference = alist.size()*4;
@@ -171,6 +182,7 @@ public class CompareAnswerRest extends HttpServlet {
 		 Candidate c3=null;
 		 Candidate c4=null;
 		 Candidate c5=null;
+		 
 			if (dao.getConnection()) {
 				c1=dao.readOneCandidate(cand1);
 				c2=dao.readOneCandidate(cand2);
@@ -217,10 +229,10 @@ public class CompareAnswerRest extends HttpServlet {
 		Collections.sort(list, new Comparator<Map.Entry<Integer, Integer> >() {
             public int compare(Map.Entry<Integer, Integer> o1,
                     Map.Entry<Integer, Integer> o2)
- {
-     return (o1.getValue()).compareTo(o2.getValue());
- }
-});
+        {
+            return (o1.getValue()).compareTo(o2.getValue());
+ 		}
+		});
 		// Insert sorted list to hashmap
 		  HashMap<Integer, Integer> temp = new LinkedHashMap<Integer, Integer>();
 	        for (Map.Entry<Integer, Integer> aa : list) {
