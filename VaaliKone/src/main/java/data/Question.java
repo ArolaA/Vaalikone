@@ -18,7 +18,6 @@ public class Question {
 		this.question = question;
 
 	}
-	
 	public Question(String question) {
 		this.question = question;
 	}
@@ -29,6 +28,7 @@ public class Question {
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
