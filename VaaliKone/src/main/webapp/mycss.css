@@ -300,6 +300,11 @@ td.loginlogo
 	font-size: 12px;
 }
 
+form i {
+    margin-left: -28px;
+    cursor: pointer;
+}
+
 p.copyright
 {
 	display: flex;
@@ -788,6 +793,10 @@ p.welcome
 { 	
 	text-align: center;
 	color: ivory;		
-	font-weight: bold;
-	
+	font-weight: bold;	
+}
+
+#registeruser input[type=text], #registeruser input[type=password]
+{
+	width: 180px;
 }
