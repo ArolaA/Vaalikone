@@ -24,6 +24,7 @@
 <c:set var="difference" value="${maxDif}"/>
 
 <div class="background">	  	  	
+
   	<div class="frame" style="padding-bottom: 20px; width:55%;">  		
 	  	<div class="navigation">	
   			<div class="bestcandidatedetails">
@@ -42,6 +43,8 @@
 			</div>		
 			<p id="test"></p>
 		</div>			
+
+
 			<div class="navigation">
 				<div class="bestcandidatedetails">
 	  				<p>Vastauksiesi pohjalta toiseksi sopivin ehdokas:</p>						
