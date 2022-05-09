@@ -20,6 +20,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.apache.http.HttpStatus;
 
 import data.Question;
 import data.Users;
@@ -34,10 +37,15 @@ public class RestDao {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public List<Question> readQuestion() {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		List<Question> list=em.createQuery("select x from Question x").getResultList();		
-		em.getTransaction().commit();
+		List<Question> list = null;
+		try {
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			list = em.createQuery("select x from Question x").getResultList();		
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 	
@@ -46,10 +54,14 @@ public class RestDao {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public List<Question> addQuestion(Question question) {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(question);//The actual insertion line
-		em.getTransaction().commit();		
+		try {
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			em.persist(question);//The actual insertion line
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 		List<Question> list=readQuestion();		
 		return list;
 	}
@@ -59,10 +71,15 @@ public class RestDao {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public Question readToUpdateQuestion(@PathParam("id") int id) {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		Question q=em.find(Question.class, id);
-		em.getTransaction().commit();
+		Question q = null;
+		try {
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			q = em.find(Question.class, id);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return q;
 	}	
 	
@@ -71,13 +88,19 @@ public class RestDao {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public List<Question> updateQuestion(Question question) {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		Question q=em.find(Question.class, question.getId());
-		if (q!=null) {
-			em.merge(question);//The actual update line
+		try {
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			Question q=em.find(Question.class, question.getId());
+			if (q!=null) {
+				em.merge(question);//The actual update line
+			} else {
+				Response.status(HttpStatus.SC_NOT_FOUND); //maybe returns 404 http status code if the question id is null
+			}
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		em.getTransaction().commit();
 		//Calling the method readQuestion() of this service
 		List<Question> list=readQuestion();		
 		return list;
@@ -87,17 +110,18 @@ public class RestDao {
 	@Path("/deleteQuestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
-	
-	public List<Question> deleteQuestion(@PathParam("id") int id) {
-			
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		Question q=em.find(Question.class, id);
-			if (q!=null) {
-				em.remove(q);
-			}
-		em.getTransaction().commit();
-		
+	public List<Question> deleteQuestion(@PathParam("id") int id) {	
+		try {
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			Question q=em.find(Question.class, id);
+				if (q!=null) {
+					em.remove(q);
+				} 
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		List<Question> list=readQuestion();
 		return list;				
 	}
@@ -107,10 +131,15 @@ public class RestDao {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	@Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public List<Users> readUsers() {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		List<Users> list=em.createQuery("select x from Users x").getResultList();		
-		em.getTransaction().commit();
+		List<Users> list = null;
+		try {
+			EntityManager em=emf.createEntityManager();
+			em.getTransaction().begin();
+			list = em.createQuery("select x from Users x").getResultList();		
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 	
@@ -118,7 +147,7 @@ public class RestDao {
 	@Path("/adduser")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void addFish(Users user) {
+	public void addUser(Users user) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(user);//The actual insertion line
