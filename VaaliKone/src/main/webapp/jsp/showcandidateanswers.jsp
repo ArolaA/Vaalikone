@@ -5,7 +5,8 @@
  <%@ page import="data.CandidateQuestion" %> 
  <%@ page import="data.CandidateAnswer" %>  
     
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
     
 <!DOCTYPE html>
 <html>
@@ -32,6 +33,7 @@
 	<div class="background">
 		<c:set var="count" value="0" scope="page" ></c:set>
 		<c:set var="questions" value="${requestScope.questionlist}" scope="page" ></c:set>
+		<c:set var="answers" value="${requestScope.answerlist}" scope="page" ></c:set>
 		<c:set var="candidate" value="${requestScope.candidate}" scope="page" ></c:set>
 		
 					
@@ -40,8 +42,8 @@
 		
 			<form action='/AddCandidateAnswer' id="c_answerform" method="POST">		
 				
-				<c:if test="${empty requestScope.answerlist}">
-					<h3 class="noanswers">Et ole vielä vastannut vaalikoneen kysymyksiin.</h3><br>
+				<c:if test="${fn:length(answerlist) < fn:length(questionlist)}">
+					<h3 class="noanswers">Et ole vielä vastannut kaikkiin vaalikoneen kysymyksiin.</h3><br>
 					<a href='/ShowCandidateQuestions' class="btn-grad" style="width:125px;">Vastaa kysymyksiin</a>
 					
 				</c:if>
