@@ -73,7 +73,7 @@ public class RegisterUser extends HttpServlet {
 		for(int i=0 ; i < list.size(); i++)
 		{	
 			if(user.equalsIgnoreCase(list.get(i).getUser().toString())){
-				failed = "Käyttäjänimi " +user+" on jo käytössä, anna uusi käyttäjänimi";
+				failed = "Käyttäjänimi " +user+" on jo käytössä.";
 				userOK = false;
 			}					
 		}		
@@ -92,7 +92,8 @@ public class RegisterUser extends HttpServlet {
 		}
 		else{
 			request.setAttribute("addfailed", failed);
-			request.setAttribute("user", user);			
+			request.setAttribute("user", user);
+			request.setAttribute("pwd", password);	
 			RequestDispatcher rd = request.getRequestDispatcher("jsp/adduser.jsp");			
 			rd.forward(request, response);
 		}			 
