@@ -50,12 +50,11 @@ public class ShowOneCandidateAnswers extends HttpServlet {
 		request.setAttribute("answerlist", list);
 		request.setAttribute("questionlist", list2);
 		request.setAttribute("candidate", c);
-		request.setAttribute("id", id);
+		request.setAttribute("id", id);			
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showcandidateanswers.jsp");
 		rd.forward(request, response);
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>User login</title>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 <link rel="stylesheet" type="text/css" href="../mycss.css">
 
 </head>
@@ -26,7 +27,9 @@
 			            </tr>			            	                     
 			            <tr>
 			            	<td class="passwordlogo"><img src="/img/password_logo.png" alt="password logo">
-			                	<input type="password" name="password" required placeholder="salasana"></td>
+			                	<input type="password" name="password" id="password" required placeholder="salasana">
+			                	<i class="bi bi-eye-slash" id="togglePassword"></i></td>
+			                	
 			            </tr>			  
 			        </table>
 			        <p style="color:red; font-size: 12px; font-weight: bold; text-transform: uppercase;">${requestScope.login} </p>
@@ -37,5 +40,19 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	const togglePassword = document.querySelector("#togglePassword");
+	const password = document.querySelector("#password");
+	
+	togglePassword.addEventListener("click", function () {
+	    // toggle the type attribute
+	    const type = password.getAttribute("type") === "password" ? "text" : "password";
+	    password.setAttribute("type", type);
+	    
+	    // toggle the icon
+	    this.classList.toggle("bi-eye");
+	});   
+</script>
 </body>
 </html>
