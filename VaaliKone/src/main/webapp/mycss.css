@@ -205,7 +205,8 @@ body
 	width:80%;
 	background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 	padding: 30px;
-	margin-top: 10px;	
+	margin-top: 10px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
 }
 
 .header
@@ -315,7 +316,6 @@ p.copyright
 	padding-bottom: 5px;	
 	border-radius: 5px;
 	font-size: 12px;
-	
 }
 
 .heading
@@ -727,11 +727,11 @@ p.candidatedetailsheading
 	align-items:center;
 	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 	color:ivory;
-	padding: 20px 20px 30px 20px;
+	padding: 10px 10px 20px 10px;
 	border: 2px solid black;
 	border-radius: 10px;
-	box-shadow: 5px 5px grey;
-	margin-bottom: 30px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px, rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
+	margin-bottom: 20px;
 	width: 70%;	
 	font-weight: bold;
 }
@@ -746,25 +746,52 @@ p.candidatedetailsheading
 {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	width: 90%;	
+}
+
+.bestcandidatenumber
+{
+	display: flex;	
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	width: 35px;
+	font-size: 22px;
+	margin-right: 20px;
+	margin-top: 14px;
+	margin-bottom: 14px;
+	background-color: black;
+	border-radius: 5px;
+	border: 2px solid ivory;
+	padding: 10px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px, rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
 }
 
 .bestcandidatetext
 {
-	display: flex;	
+	display: flex;
+	justify-content: left;	
 	align-items: center;
-	width: 330px;
+	text-align: left;
+	width: 75%;
+	font-weight: bold;
+	font-size: 16px;	
 }
 
 .bestcandidatevalue
 {
 	display: flex;	
 	align-items: center;
-	margin-left: 30px;
-	font-size: 26px;
+	margin-left: 10px;	
+	font-size: 22px;
 	background-color: black;
 	border-radius: 50%;
-	border: 4px double ivory;
-	padding: 20px;
+	border: 2px solid ivory;
+	padding: 16px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px 0px, rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;
 }
 
 #scrollBtn 
