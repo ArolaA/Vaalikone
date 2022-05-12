@@ -477,8 +477,7 @@ public class Dao {
 				
 				answerlist.add(u);
 				index++;
-			}
-			System.out.println("tama on dao answer list " + answerlist);
+			}			
 			return answerlist;
 		}
 		catch(Exception e) {
