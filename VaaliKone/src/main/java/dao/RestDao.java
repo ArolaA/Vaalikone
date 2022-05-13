@@ -29,6 +29,7 @@ import data.Users;
  * @version 1.0
  * 
  */
+
 @Path("/restdao")
 public class RestDao {
 	
@@ -77,6 +78,7 @@ public class RestDao {
 		return list;
 	}
 	
+	
 	@GET
 	@Path("/readtoupdatequestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -117,6 +119,13 @@ public class RestDao {
 		return list;
 	}	
 	
+	
+	
+	/**
+	 * This method receives a question id and based on it, will delete the question from the database.
+	 * @param id of the question sent for deletion
+	 * @return returns a revised list of questions
+	 */
 	@DELETE
 	@Path("/deleteQuestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
