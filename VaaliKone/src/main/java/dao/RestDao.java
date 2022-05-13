@@ -139,7 +139,7 @@ public class RestDao {
 	@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
 	public List<Question> deleteQuestion(@PathParam("id") int id) {	
 		try {
-			EntityManager em=emf.createEntityManager();
+			EntityManager em = emf.createEntityManager();
 			em.getTransaction().begin();
 			Question q=em.find(Question.class, id);
 				if (q!=null) {
