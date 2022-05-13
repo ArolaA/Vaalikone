@@ -77,6 +77,11 @@ public class RestDao {
 		return list;
 	}
 	
+	/**
+	 * reads a single question to question update servlet based on the id it gets 
+	 * @param id is used to get the question with a corresponding id from the database
+	 * @return returns the question object
+	 */
 	@GET
 	@Path("/readtoupdatequestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -94,6 +99,11 @@ public class RestDao {
 		return q;
 	}	
 	
+	/**
+	 * this method updates the question to the database
+	 * @param question is a Question-type object which is updated to the database based on the id it has
+	 * @return returns an list of all Question-objects in the database
+	 */
 	@PUT
 	@Path("/updatequestion")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -117,6 +127,11 @@ public class RestDao {
 		return list;
 	}	
 	
+	/**
+	 * deletes a specific question from database based on the id it gets
+	 * @param id is used to get the question with a corresponding id from the database
+	 * @return returns an list of all Question-objects in the database
+	 */
 	@DELETE
 	@Path("/deleteQuestion/{id}")
 	@Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
