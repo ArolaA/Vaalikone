@@ -1,15 +1,10 @@
 package dao;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,7 +13,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -27,11 +21,23 @@ import org.apache.http.HttpStatus;
 import data.Question;
 import data.Users;
 
+
+/**
+ * Date: 7.5.2022
+ * This is the RestDAO class that is responsible for accessing and modifying the database.
+ * @author Arsi Arola, Ari-Jussi Ahonen, Oskari Ahoniemi
+ * @version 1.0
+ * 
+ */
 @Path("/restdao")
 public class RestDao {
 	
 	EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikone");
 	
+	/**
+	 * This method reads all the questions from the database
+	 * @return returns an arraylist of question-objects
+	 */
 	@GET
 	@Path("/readallquestions")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -49,6 +55,11 @@ public class RestDao {
 		return list;
 	}
 	
+	/**
+	 * this method adds a new question to the database
+	 * @param question is a Question-type object which is added to the database
+	 * @return returns an updated array-list of all Question-objects in the database
+	 */
 	@POST
 	@Path("/addquestion")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -126,6 +137,10 @@ public class RestDao {
 		return list;				
 	}
 	
+	/**
+	 * this method reads all users and their passwords from the database
+	 * @return returns an array-list of all Users-objects in the database
+	 */
 	@GET
 	@Path("/readusers")
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -143,6 +158,10 @@ public class RestDao {
 		return list;
 	}
 	
+	/**
+	 * this method adds a new user and password to the database
+	 * @param user is a Users-type object which is added to the database
+	 */
 	@POST
 	@Path("/adduser")
 	@Produces(MediaType.APPLICATION_JSON)

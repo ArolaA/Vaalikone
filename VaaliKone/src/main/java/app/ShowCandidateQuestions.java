@@ -56,10 +56,11 @@ public class ShowCandidateQuestions extends HttpServlet {
 			System.out.println("No connection to database");
 		}
 		
-		//set both lists as attributes and forward to addcandidateanswerjsp
+		//set both lists as attributes and forward to addcandidateanswer.jsp
 //		request.setAttribute("questionlist", list);
 //		request.setAttribute("candidatelist", list2);
 		
+		//set both lists as attributes on application-scope and forward to addcandidateanswer2.jsp
 		getServletContext().setAttribute("questionlist", list);
 		getServletContext().setAttribute("candidatelist", list2);
 		

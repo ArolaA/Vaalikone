@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <title>Rekisteröi uusi käyttäjä</title>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 <link rel="stylesheet" type="text/css" href="../mycss.css">
 
 </head>
@@ -23,7 +24,7 @@
 			</div>
 		</div>		
 		<div class="loginform">
-			<form action="/registeruser" method="post">				        		        			  
+			<form class="registeruser" id="registeruser" action="/registeruser" method="post">				        		        			  
 			        <table>			        	
 			            <tr>
 			             	<td class="loginlogo"><img src="/img/user_logo.png" alt="username logo">	                
@@ -31,11 +32,13 @@
 			            </tr>			            	                     
 			            <tr>
 			            	<td class="passwordlogo"><img src="/img/password_logo.png" alt="password logo">
-			                	<input type="password" name="password" minlength="5" required placeholder="salasana (min 5 merkkiä)" ></td>
+			                	<input type="password" name="password" id="password" minlength="5" value="${requestScope.pwd}" required placeholder="salasana (min 5 merkkiä)" >
+			                	<i class="bi bi-eye-slash" id="togglePassword"></i></td>
 			            </tr>
 			            <tr>
 			            	<td class="passwordlogo"><img src="/img/password_logo.png" alt="password logo">
-			                	<input type="password" name="password2" required placeholder="salasana uudestaan"></td>
+			                	<input type="password" name="password2" id="password2" value="${requestScope.pwd}" required placeholder="salasana uudestaan">
+			                	<i class="bi bi-eye-slash" id="togglePassword2"></i></td>
 			            </tr>			  
 			        </table>
 			        <p style="color:red; font-size: 12px; font-weight: bold; text-transform: uppercase;">${requestScope.addfailed} </p>
@@ -46,5 +49,32 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	const togglePassword = document.querySelector("#togglePassword");
+	const password = document.querySelector("#password");
+	
+	const togglePassword2 = document.querySelector("#togglePassword2");
+	const password2 = document.querySelector("#password2");
+	
+	togglePassword.addEventListener("click", function () {
+	    // toggle the type attribute
+	    const type = password.getAttribute("type") === "password" ? "text" : "password";
+	    password.setAttribute("type", type);
+	    
+	    // toggle the icon
+	    this.classList.toggle("bi-eye");
+	}); 
+	
+	togglePassword2.addEventListener("click", function () {
+	    // toggle the type attribute
+	    const type2 = password2.getAttribute("type") === "password" ? "text" : "password";
+	    password2.setAttribute("type", type2);
+	    
+	    // toggle the icon
+	    this.classList.toggle("bi-eye");
+	}); 
+</script>
+
 </body>
 </html>
