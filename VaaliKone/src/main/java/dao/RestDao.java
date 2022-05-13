@@ -29,6 +29,7 @@ import data.Users;
  * @version 1.0
  * 
  */
+
 @Path("/restdao")
 public class RestDao {
 	
@@ -128,9 +129,9 @@ public class RestDao {
 	}	
 	
 	/**
-	 * deletes a specific question from database based on the id it gets
-	 * @param id is used to get the question with a corresponding id from the database
-	 * @return returns an list of all Question-objects in the database
+	 * This method receives a question id and based on it, will delete the question from the database.
+	 * @param id of the question sent for deletion
+	 * @return returns a revised list of questions
 	 */
 	@DELETE
 	@Path("/deleteQuestion/{id}")
