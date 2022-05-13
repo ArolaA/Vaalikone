@@ -101,8 +101,7 @@ public class CompareAnswerRest extends HttpServlet {
 
 			int index=1;
 			int ansScore=0;
-			int cand_id=candidates.get(z-1).getId();
-			System.out.println("Ehdokkaan ID: " +cand_id);
+			int cand_id=candidates.get(z-1).getId();			
 
 			// Count scoring from received use answers
 			for(int x=0; x < alist.size(); x++)
@@ -134,11 +133,9 @@ public class CompareAnswerRest extends HttpServlet {
 				}
 				//else calculate the absolute difference between the answers
 				else {
-					ansScore= Math.abs(userValue - candValue);
-					System.out.println("Pisteet: " +ansScore);
+					ansScore= Math.abs(userValue - candValue);					
 				}				
-				score1=score1+ansScore;
-				System.out.println("Kokonaispisteet: " +score1);
+				score1=score1+ansScore;				
 			}
 			scoreTable.put(index, cand_id, score1);
 			result.put(cand_id, score1);
